@@ -1,0 +1,22 @@
+<view class="map_box">
+  <map id="navi_map" longitude="{{longitude}}" latitude="{{latitude}}" scale="12" markers="{{markers}}"
+    polyline="{{polyline}}"></map>
+</view>
+
+<view class="flex-style">
+  <image src="/image/sousuo.png"></image>
+  <input bindinput="bindInput" placeholder="搜索" focus="true" />
+</view>
+
+<view class="i-data" wx:if="{{tips.length > 0}}">
+  <view class="i-h">
+    <view class="i-item" bindtap="bindSearch" data-index="{{index}}" data-keywords="{{i}}" wx:for="{{tips}}" wx:for-item="i" wx:key="index">
+      <view>
+        <view class="i-name">{{i.name}}</view>
+        <view class="i-address">{{i.address}}</view>
+      </view>
+      <image wx:if="{{tips_index == index}}" src="/image/check-address.png"></image>
+    </view>
+  </view>
+  <view class="i-sbimt" bindtap="sub_address">确定</view>
+</view>

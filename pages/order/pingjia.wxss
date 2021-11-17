@@ -1,0 +1,129 @@
+.tibtn{
+  width: 686rpx;
+height: 70rpx;
+background: #30AEFF;
+border-radius: 35rpx;
+font-size: 28rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: 500;
+color: #FFFFFF;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 76rpx auto;
+}
+.xianzhi{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #676767;
+  margin-left: 27rpx;
+}
+.yshangc{
+  position: relative;
+}
+.close{
+  position: absolute;
+  width: 34rpx;
+  height: 34rpx;
+  top: 0;
+  right: 0;
+}
+.yjshang{
+  width: 161rpx;
+  height: 161rpx;
+  border-radius: 8rpx;
+}
+.upload{
+  display: flex;
+  justify-content: space-between;
+  width: 654rpx;
+  margin: auto;
+  padding-top: 20rpx;
+}
+.duoh{
+  height: 260rpx;
+  width: 680rpx;
+  margin: auto;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #676767;
+  padding-top: 8rpx;
+  box-sizing: border-box;
+}
+.zhangshu{
+  position: absolute;
+  font-size: 20rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #979797;
+  top: 105rpx;
+  left: 68rpx;
+}
+.dianji{
+  position: relative;
+}
+.dianji image{
+  width: 161rpx;
+  height: 161rpx;
+}
+.dd{
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  margin: 24rpx 0 0 32rpx;
+}
+.box{
+  width: 710rpx;
+  height: 495rpx;
+  background: #FFFFFF;
+  border-radius: 14rpx;
+  border: 1px solid #C9C9C9;
+  margin: 24rpx auto;
+  
+}
+.hui{
+  width: 686rpx;
+border: 1px solid #BCBCBC;
+margin: 23rpx auto;
+}
+.cross_column label{
+  font-size: 32rpx;
+font-family: PingFangSC-Medium, PingFang SC;
+font-weight: bold;
+color: #333333;
+margin-left: 32rpx;
+margin-right: 41rpx;
+}
+.dingdan{
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  padding-top: 24rpx;
+  margin-left: 32rpx;
+}
+/* 列合并 */
+.cross_column {
+  display: flex;
+  line-height: 70rpx;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+/* img图片样式 */
+.imagecls {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 30rpx;
+}
+/*按钮样式 */
+
+.but_style {
+ background-color: #f2a8b9;
+  width: 200rpx;
+  height: 100rpx;
+  color: white;
+}

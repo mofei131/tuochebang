@@ -1,0 +1,11 @@
+<view>
+  <view class="phome">
+    <input type="number" placeholder="请输入手机号" bindinput="getPhone" value="{{phone}}" />
+    <image wx:if="{{clean_phone}}" bindtap="cleanPhone" src="/image/cha.png"></image>
+  </view>
+  <view class="code">
+    <view class="code-input"><input type="number" bindinput="getcode" placeholder="请输入验证码" /></view>
+    <view class="code-botom" bindtap="getCode">{{sendTime}}</view>
+  </view>
+  <view class="botm" bindtap="xiugai">保存</view>
+</view>

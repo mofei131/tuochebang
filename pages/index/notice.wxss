@@ -1,0 +1,43 @@
+page {
+  background: #F9FAFC;
+}
+
+.list {
+  margin: 20rpx;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+  border-radius: 14rpx;
+  border: 1rpx solid #F4F4F5;
+  margin-bottom: 20rpx;
+  padding: 25rpx;
+}
+
+.title {
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #51565D;
+  position: relative;
+}
+
+.icon {
+  width: 18rpx;
+  height: 18rpx;
+  background: #FF7878;
+  border-radius: 50%;
+  position: absolute;
+  right: -12rpx;
+  top: -6rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+}

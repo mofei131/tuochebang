@@ -1,0 +1,71 @@
+page {
+  background-color: #F4F7F7;
+}
+
+.top-bg {
+  background-image: url('http://hlstore.yimetal.cn/img/ticheng_bg.png');
+  height: 231rpx;
+  background-size: 100%;
+  display: flex;
+  align-items: baseline;
+  padding: 58rpx 0rpx 0rpx 45rpx;
+}
+
+.top-shouyi {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.top-shouyi span {
+  font-size: 72rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+
+}
+
+.top-bg image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.list {
+  background: #FFFFFF;
+}
+
+.item:last-child{
+  display: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 0rpx;
+  border-bottom: 1rpx solid #d9d9d9;
+  margin: 0rpx 43rpx;
+}
+
+.name {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+}
+
+.type {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}

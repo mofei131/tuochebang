@@ -1,0 +1,70 @@
+<view>
+  <navbar>
+    <view class="current-date">
+      <view class="shu" bindtap="toNewsPage">
+        <image src="/image/news.png"></image>
+        <view class="shunum" wx:if="{{shunum > 0}}">{{shunum}}</view>
+      </view>
+      <text>拖车邦</text>
+      <view style="width: 40px;"></view>
+    </view>
+  </navbar>
+
+  <view style="margin-top:{{navBarHeight}}px;">
+    <view class="map_container" style="top: {{navBarHeight}}px;">
+      <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true"
+        markers="{{markers}}" polyline="{{polyline}}"></map>
+    </view>
+
+    <view class="vehicle-content">
+      <view class="vehicle-type">选择拖车类型：{{cardList[cardList_index].name}}</view>
+      <view class="vehicle-info">
+        <image bindtap="backCard" src="/image/index_zuo.png"></image>
+        <swiper  current="{{cardList_index}}" bindchange='onSlideChangeEnd'>
+          <swiper-item wx:for="{{cardList}}">
+            <view class="vehicle-info-card">
+              <image src="{{item.logo}}"></image>
+              <view>
+                <view class="vehicle-number">载 重：{{item.weight}}吨</view>
+                <view class="vehicle-number" style="margin: 6rpx 0rpx;">底盘高：{{item.dipan_height}}m</view>
+                <view class="vehicle-number">长宽高：{{item.length}}*{{item.width}}*{{item.height}}m</view>
+              </view>
+            </view>
+          </swiper-item>
+        </swiper>
+        <image bindtap="nextCard" src="/image/index_you.png"></image>
+      </view>
+      <view class="user-info">
+        <view bindtap="start_card" class="user-info-item"><span>{{start_card.name || '请点击装车地点'}}</span>
+          <image src="/image/add_zuobiao.png"></image>
+        </view>
+        <view class="user-info-uinfo">
+          <view class="user-info-name"><input bindinput="getFuser" placeholder="请输入发车人姓名" /></view>
+          <view class="user-info-phone"><input bindinput="getFphone" placeholder="请输入发车人联系方式" /></view>
+        </view>
+        <view bindtap="end_card" class="user-info-item"><span>{{end_card.name || '请点击卸车地点'}}</span>
+          <image src="/image/add_zuobiao.png"></image>
+        </view>
+        <view class="user-info-uinfo">
+          <view class="user-info-name"><input bindinput="getXuser" placeholder="请输入收货人姓名" /></view>
+          <view class="user-info-phone"><input bindinput="getXphone" placeholder="请输入收货人联系方式" /></view>
+        </view>
+      </view>
+      <view class="next-order" bindtap="createOrder">下一步</view>
+    </view>
+  </view>
+  <view class="anbox" wx:if="{{shou}}">
+    <view class="neibox">
+      <view class="ntitle">提示</view>
+      <view class="ncon1">请授权手机号</view>
+      <view class="nbot">
+        <view bindtap="qux">取消</view>
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{denglu}}" class="denglu-mork" bindtap="noGetUser2">
+
+</view>

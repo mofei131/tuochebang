@@ -1,0 +1,170 @@
+<view>
+  <view class="map_container">
+    <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true"
+      markers="{{markers}}" polyline="{{polyline}}"></map>
+  </view>
+  <view class="content-order" style="bottom:{{ordre_top}}rpx" bindtouchstart="touchStart" bindtouchend="touchEnd">
+    <view class="icon" bindtap="stretchIcon_order">
+      <view class="heng"></view>
+    </view>
+    <!-- 起点位置 -->
+    <view class="order-address">
+      <view class="address-info">
+        <view class="address-icon">起</view>
+        <view>
+          <view class="address-dizhi">{{datadet.start_name}}</view>
+          <view class="address-dizhi-info">{{datadet.start_addr}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 终点位置 -->
+    <view class="order-address">
+      <view class="address-info">
+        <view class="address-icon bgred">终</view>
+        <view class="">
+          <view class="address-dizhi">{{datadet.end_name}}</view>
+          <view class="address-dizhi-info">{{datadet.end_addr}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 分割线 -->
+    <view class="order-border"></view>
+    <view wx:if="{{show}}">
+    <!-- 里程 时间 -->
+    <view class="order-luxian">
+      <view class="luxian-info">预估里程：<span>{{datadet.licheng}}km</span></view>
+      <view class="luxian-info">预估时间：<span>{{datadet.hour}}h</span></view>
+    </view>
+    <!-- 装车时间 -->
+    <view class="zc-card">
+      <view class="zc-info">
+        <view class="zc-time">装车时间：</view>
+        <view class="zc-chektime">
+          <view>{{datadet.zc_start_time}} — {{datadet.zc_end_time}}</view>
+          <!-- <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+            <view class="picker">
+              {{o_data}}
+            </view>
+          </picker>
+          <view class="order-time-xuan">
+            <picker mode="time" style="margin-right: 0rpx;" value="{{time}}" start="{{o_time_start}}"
+              bindchange="bindTimeChange_s">
+              <view class="picker">
+                {{o_time_start}}
+              </view>
+            </picker>
+            <span>—</span>
+            <picker mode="time" value="{{time}}" start="{{o_time_end}}" bindchange="bindTimeChange_e">
+              <view class="picker">
+                {{o_time_end}}
+              </view>
+            </picker>
+          </view> -->
+        </view>
+      </view>
+      <!-- <image src="/image/order_dayu.png"></image> -->
+    </view>
+    <!-- 板车类型 -->
+    <view class="card-calss">
+      <view class="card-calss-picker">
+        <view class="zc-time">板车类型：</view>
+        <!-- <picker bindchange="bindPickerChange" value="{{cardList_index}}" range="{{cardList}}">
+          <view>{{cardList[cardList_index]}}</view>
+        </picker> -->
+        <view>{{datadet.trailer_type.name}}</view>
+      </view>
+      <!-- <image src="/image/order_dayu.png"></image> -->
+    </view>
+    <!-- 托运车型 -->
+    <view class="order-cardType">
+      <view class="zc-time">托运车型：</view>
+      <!-- <input placeholder="请输入车型" bindinput="getCardType" /> -->
+      <view class="chexing">{{datadet.chexing}}</view>
+    </view>
+    <!-- 支付方式 -->
+    <view class="card-calss">
+      <view class="card-calss-picker">
+        <view class="zc-time">支付方式：</view>
+        <!-- <picker bindchange="bindPayChange" value="{{payType_index}}" range="{{payType}}">
+          <view>{{payType[payType_index]}}</view>
+        </picker> -->
+        <view wx:if="{{datadet.pay_type == 1}}">全款</view>
+        <view wx:if="{{datadet.pay_type == 2}}">定金</view>
+        <view wx:if="{{datadet.pay_type == 3}}">到付</view>
+      </view>
+      <!-- <image src="/image/order_dayu.png"></image> -->
+    </view>
+    <!-- 里程费 -->
+    <view class="order-cardType">
+      <view class="zc-time" style="letter-spacing: 2rpx;">里 程 费：</view>
+      <view class="order-mileage-info">
+        <view class="order-mileage-price">¥{{datadet.money}}</view>
+        <view wx:if="{{datadet.pay_type == 2 || datadet.pay_type == 3}}" class="order-mileage-price-yujiao">(含<span>¥{{datadet.dingjin}}</span>定金)
+        </view>
+      </view>
+    </view>
+    <!-- 保险 -->
+    <view class="order-insurance">
+      <view class="zc-time"><span style="letter-spacing: 46rpx;">保</span>险：</view>
+      <view class="insurance-list">
+        <view class="insurance-item" wx:for="{{datadet.baoxian}}" wx:key="index">
+          <view class="i-item-name">{{item.name}}</view>
+          <view class="i-item-price">¥{{item.price}}
+          <!-- <image bindtap="choice_baoxian" data-index="{{index}}"
+              src="{{item.check ? '/image/tixian_ye.png' : '/image/tixian_no.png'}}"></image> -->
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 打赏小费 -->
+    <view class="order-cardType">
+      <view class="zc-time">打赏小费：</view>
+      <!-- <input type="number" value="{{order_xiaofei}}" bindinput="huoquXiaofei" placeholder="请输入打赏小费（选填）" /> -->
+      <view class="zc-time">￥{{datadet.xiaofee}}</view>
+    </view>
+    <!-- 特殊要求 -->
+    <view class="order-other">
+      <view class="order-other-neir">
+        <view class="zc-time">特殊要求：</view>
+        <!-- <view class="order-other-yaoqiu" wx:for="{{otherList_}}" wx:if="{{item.check}}" wx:key="index">
+          {{item.name}}
+        </view> -->
+      </view>
+      <!-- <view class="order-other-picker">
+        <picker style="margin-right: 0rpx;" bindchange="bindTeshuChange" value="{{otherList_index}}"
+          range="{{otherList}}">
+          <image src="/image/order_dayu.png"></image>
+        </picker>
+      </view> -->
+      
+    </view>
+    <view class="fifl">
+      <view class="teshu1" wx:for="{{datadet.requirement}}" wx:key="index">{{item.name}}</view>
+    </view>
+    
+    <!-- 备注 -->
+    <view class="order-insurance">
+      <view class="zc-time"><span style="letter-spacing: 46rpx;">备</span>注：</view>
+      <!-- <textarea placeholder="请输入备注" bindinput="huoquBeizhu"></textarea> -->
+      <view class="mark">{{datadet.mark}}</view>
+    </view>
+  </view>
+    <!-- 特别提醒 -->
+    <!-- <view class="order-insurance cont">
+      <view>特别提醒：</view>
+      <view class="cont-w">拖车邦仅为信息居间服务平台，实际运输过程中的相关风险由发货方与承运方自行评估与承担，出发前请务必确认。</view>
+    </view> -->
+    <!-- 用户协议 隐私政策 -->
+    <!-- <view class="order-insurance xieyi">
+      <image src="/image/tixian_ye.png"></image>
+      <view class="xieyi-neir">登录即代表同意<span>用户协议</span>及<span>隐私政策</span></view>
+    </view> -->
+    <!-- 下单按钮 -->
+    <!-- <view class="order-button" bindtap="placeOrder">去下单<span wx:if="{{order_pay_money > 0}}">（{{order_pay_money}}元）</span></view> -->
+    <view class="order-button" wx:if="{{datadet.status == 0}}">未支付</view>
+    <view class="order-button" wx:if="{{datadet.status == 1}}">待接单</view>
+    <view class="order-button" wx:if="{{datadet.status == 2}}">进行中</view>
+    <view class="order-button" wx:if="{{datadet.status == 4}}">已完成</view>
+    <view class="order-button" wx:if="{{datadet.status == 5}}">已评价</view>
+  </view>
+</view>

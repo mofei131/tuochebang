@@ -1,0 +1,157 @@
+page {
+  background-color: #F6F6F6;
+}
+
+.top-bg {
+  background-image: url('http://hlstore.yimetal.cn/img/tixian_bg.png');
+  background-size: 100%;
+  padding: 48rpx 0rpx 34rpx 99rpx;
+}
+
+.name {
+  font-size: 34rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin-bottom: 11rpx;
+}
+
+.t-1 {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+
+}
+
+.t-money {
+  font-size: 60rpx;
+  font-family: Helvetica;
+  color: #FFFFFF;
+  margin-bottom: 26rpx;
+}
+
+.t-money span {
+  font-size: 36rpx;
+  font-family: Helvetica;
+  color: #FFFFFF;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 65%;
+}
+
+.info-money {
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.price_baoliu {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.info-money text {
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.tixian-money {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  margin: 20rpx 0rpx;
+  height: 99rpx;
+  padding: 0rpx 44rpx;
+}
+
+.tixian-money text {
+  height: 45rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  margin-right: 98rpx;
+  white-space: nowrap;
+}
+
+input {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FF4B3D;
+}
+
+.wx-tixian {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFFFFF;
+  border-radius: 10rpx;
+  margin: 20rpx;
+  padding: 20rpx;
+}
+
+.wx-tixian image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.wx-icon {
+  display: flex;
+  align-items: center;
+}
+
+.wx-icon image {
+  width: 38rpx;
+  height: 40rpx;
+  margin-right: 15rpx;
+}
+
+.wx-icon text {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+
+.tixian {
+  background: #30AEFF;
+  border-radius: 35rpx;
+  margin: 35rpx;
+  height: 71rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.tixian-guize {
+  display: flex;
+  flex-direction: column;
+  margin: 35rpx;
+}
+
+.tixian-guize text {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #949494;
+}

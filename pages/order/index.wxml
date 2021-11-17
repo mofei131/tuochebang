@@ -1,0 +1,173 @@
+<view>
+  <view class="map_container">
+    <map class="map" id="map" latitude="{{latitude}}" longitude="{{longitude}}" scale="14" show-location="true"
+      markers="{{markers}}" polyline="{{polyline}}"></map>
+  </view>
+  <!-- bindtouchstart="touchStart" bindtouchend="touchEnd" -->
+  <view class="content-order" style="bottom:{{ordre_top}}rpx" >
+    <view class="icon" bindtap="stretchIcon_order">
+      <view class="heng"></view>
+    </view>
+    <!-- 起点位置 -->
+    <view class="order-address">
+      <view class="address-info" bindtap="start_card">
+        <view class="address-icon">起</view>
+        <view>
+          <view class="address-dizhi">{{start_card.name}}</view>
+          <view class="address-dizhi-info">{{start_card.district}}{{start_card.address}}</view>
+        </view>
+      </view>
+      <image src="/image/order_dayu.png"></image>
+    </view>
+    <!-- 终点位置 -->
+    <view class="order-address">
+      <view class="address-info" bindtap="end_card">
+        <view class="address-icon bgred">终</view>
+        <view class="">
+          <view class="address-dizhi">{{end_card.name}}</view>
+          <view class="address-dizhi-info">{{end_card.district}}{{end_card.address}}</view>
+        </view>
+      </view>
+      <image src="/image/order_dayu.png"></image>
+    </view>
+    <!-- 分割线 -->
+    <view class="order-border"></view>
+    <view wx:if="{{show}}" style="overflow: scroll;height: 800rpx;">
+    <!-- 里程 时间 -->
+    <view class="order-luxian">
+      <view class="luxian-info">预估里程：<span>{{distance}}km</span></view>
+      <view class="luxian-info">预估时间：<span>{{order_h_card}}h</span></view>
+    </view>
+    <!-- 装车时间 -->
+    <view class="zc-card">
+      <view class="zc-info">
+        <view class="zc-time">装车时间：</view>
+        <view class="zc-chektime">
+          <picker mode="date" value="{{date}}" bindchange="bindDateChange" class="{{timeShow?'picker2':''}}">
+            <view class="picker2" wx:if="{{timeShow}}">
+              请选择装车时间
+            </view>
+            <view class="picker" wx:else>
+              {{o_data}}
+            </view>
+            <image wx:if="{{timeShow}}" src="/image/order_dayu.png"></image>
+          </picker>
+          <view class="order-time-xuan" wx:if="{{!timeShow}}">
+            <picker mode="time" style="margin-right: 0rpx;" value="{{time}}" start="00:00"
+              bindchange="bindTimeChange_s">
+              <view class="picker">
+                {{o_time_start}}
+              </view>
+            </picker>
+            <span>—</span>
+            <picker mode="time" value="{{time}}" start="00:00" bindchange="bindTimeChange_e">
+              <view class="picker">
+                {{o_time_end}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 板车类型 -->
+    <view class="card-calss">
+      <view class="card-calss-picker">
+        <view class="zc-time">板车类型：</view>
+        <picker bindchange="bindPickerChange" value="{{cardList_index}}" range="{{cardList}}" class="leixingShow">
+        <view wx:if="{{leiixngShow}}" style="color: #9c9c9c;">请选择板车类型</view>
+          <view wx:else>{{cardList[cardList_index]}}</view>
+          <image  src="/image/order_dayu.png"></image>
+        </picker>
+      </view>
+    </view>
+    <!-- 托运车型 -->
+    <view class="order-cardType">
+      <view class="zc-time">托运车型：</view>
+      <input placeholder="请输入车型" bindinput="getCardType" />
+    </view>
+    <!-- 支付方式 -->
+    <!-- <view class="card-calss">
+      <view class="card-calss-picker">
+        <view class="zc-time">支付方式：</view>
+        <picker bindchange="bindPayChange" value="{{payType_index}}" range="{{payType}}" class="payShow">
+        <view wx:if="{{payShow}}" style="color: #9c9c9c;">请选择支付方式</view>
+          <view wx:else>{{payType[payType_index]}}</view>
+          <image src="/image/order_dayu.png"></image>
+        </picker>
+      </view>
+    </view> -->
+    <!-- 里程费 -->
+    <view class="order-cardType">
+      <view class="zc-time" style="letter-spacing: 2rpx;">里 程 费：</view>
+      <view class="order-mileage-info">
+        <view class="order-mileage-price">¥{{order_price}}</view>
+        <!-- <view wx:if="{{payType_index == 1}}" class="order-mileage-price-yujiao">(含<span>¥{{order_dingjin}}</span>定金)
+        </view> -->
+        <view class="order-mileage-price-yujiao">(含<span>¥{{order_dingjin}}</span>定金)
+        </view>
+      </view>
+    </view>
+    <!-- 保险 -->
+    <view class="order-insurance">
+      <view class="zc-time"><span style="letter-spacing: 46rpx;">保</span>险：</view>
+      <view class="insurance-list">
+        <view class="insurance-item" wx:for="{{insuranceList}}" wx:key="index">
+          <view class="i-item-name">{{item.name}}</view>
+          <view class="i-item-price">¥{{item.price}}<image bindtap="choice_baoxian" data-index="{{index}}"
+              src="{{item.check ? '/image/tixian_ye.png' : '/image/tixian_no.png'}}"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 打赏小费 -->
+    <view class="order-cardType">
+      <view class="zc-time">打赏小费：</view>
+      <!-- value="{{order_xiaofei}}" -->
+      <input type="text" bindinput="huoquXiaofei" placeholder="请输入打赏小费（选填）" />
+    </view>
+    <!-- 特殊要求 -->
+    <view class="order-other">
+      <view class="order-other-neir">
+        <view class="zc-time">特殊要求：</view>
+        <!-- <view class="order-other-yaoqiu" wx:for="{{otherList_}}" wx:if="{{item.check}}" wx:key="{{index}}">
+          {{item.name}}
+        </view> -->
+      </view>
+      <!-- <view class="order-other-picker">
+        <picker style="margin-right: 0rpx;" bindchange="bindTeshuChange" value="{{otherList_index}}"
+          range="{{otherList}}">
+          <image src="/image/order_dayu.png"></image>
+        </picker>
+      </view> -->
+    </view>
+    
+    <!-- <view class="fifl">
+      <view wx:for="{{otherList_}}" wx:key="index" class="{{otherList2.indexOf(item.id) != -1?'clever':'teshu1'}}" bindtap="select" data-id="{{item.id}}">{{item.name}}
+        <wxs src="../../utils/indeof.wxs" module="tool"></wxs>
+        <view>{{tool.indexOf(otherList2,item.id)}}</view>
+      </view>
+    </view> -->
+    <checkbox-group bindchange="checkboxChange" class="fifl">
+    <checkbox class="clever" value="{{item.id}}" wx:for="{{otherList_}}" wx:key="index">{{item.name}}</checkbox>
+    </checkbox-group>
+    <!-- 备注 -->
+    <view class="order-insurance">
+      <view class="zc-time"><span style="letter-spacing: 46rpx;">备</span>注：</view>
+      <textarea placeholder="请输入备注" bindinput="huoquBeizhu"></textarea>
+    </view>
+    <!-- 特别提醒 -->
+    <view class="order-insurance cont">
+      <view>特别提醒：</view>
+      <view class="cont-w">拖车邦仅为信息居间服务平台，实际运输过程中的相关风险由发货方与承运方自行评估与承担，出发前请务必确认。</view>
+    </view>
+    <!-- 用户协议 隐私政策 -->
+    <view class="order-insurance xieyi">
+      <image bindtap="daianShow" src="{{dianShow?'/image/tixian_ye.png':'/image/tixian_no.png'}}"></image>
+      <view class="xieyi-neir">登录即代表同意<span>用户协议</span>及<span>隐私政策</span></view>
+    </view>
+  </view>
+    <!-- 下单按钮 -->
+    <view class="order-button" bindtap="placeOrder" wx:if="{{orderid == 0}}">去下单<span wx:if="{{order_pay_money > 0}}">（{{order_pay_money}}元）</span></view>
+    <view class="order-button" bindtap="placeOrder2" wx:if="{{orderid != 0}}" data-id="">去支付<span wx:if="{{order_pay_money > 0}}">（{{order_pay_money}}元）</span></view>
+  </view>
+</view>

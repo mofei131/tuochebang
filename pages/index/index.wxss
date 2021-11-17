@@ -1,0 +1,264 @@
+.shunum{
+  position: absolute;
+  top: 10rpx;
+  right: 0rpx;
+  width: 30rpx;
+  height: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #FF7878;
+  color: #fff;
+  font-size: 18rpx;
+  border-radius: 30rpx;
+}
+.shu{
+  position: relative;
+}
+.nbot button{
+  width: 334rpx;
+  height: 76rpx;
+  background: #30AEFF;
+  border-radius: 39rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nbot view{
+  width: 334rpx;
+  height: 76rpx;
+  border-radius: 39rpx;
+  border: 1px solid #409FFD;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #409FFD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nbot{
+  width: 680rpx;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ncon1{
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #51565D;
+  text-align: center;
+  margin-bottom: 48rpx;
+}
+.ntitle{
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: bold;
+  color: #51565D;
+  margin-bottom: 34rpx;
+  text-align: center;
+}
+.neibox{
+  width: 720rpx;
+  height: 368rpx;
+  background: #FFFFFF;
+  border-radius: 14rpx;
+  margin: auto;
+  margin-top: 70%;
+  padding: 68rpx 0 20rpx 0;
+  box-sizing: border-box;
+}
+.anbox{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0,.3);
+  z-index: 501;
+}
+.current-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.current-date image {
+  width: 66rpx;
+  height: 66rpx;
+  margin-left: 22rpx;
+}
+
+.map_container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map_text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  height: 80px;
+  background: #fff;
+  padding: 0 15px;
+}
+
+.vehicle-content {
+  width: 670rpx;
+  height: 625rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 1rpx 44rpx 0rpx rgba(0, 0, 0, 0.2);
+  border-radius: 28rpx;
+  position: fixed;
+  bottom: 40rpx;
+  left: 20rpx;
+  right: 20rpx;
+  z-index: 500;
+  padding: 20rpx;
+}
+
+.vehicle-type {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  margin-bottom: 26rpx;
+}
+
+.vehicle-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35rpx;
+}
+
+.vehicle-info image {
+  width: 23rpx;
+  height: 38rpx;
+}
+
+.vehicle-info-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.vehicle-info-card image {
+  width: 192rpx;
+  height: 86rpx;
+  margin-right: 59rpx;
+}
+
+.vehicle-number {
+  font-size: 25rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+
+.user-info {
+  margin-left: 28rpx;
+}
+
+.user-info-item {
+  font-size: 40rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.user-info-item span{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 280px;
+}
+
+.user-info-item image {
+  width: 35rpx;
+  height: 40rpx;
+  margin-left: 16rpx;
+}
+
+.user-info-uinfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 31rpx;
+}
+
+.user-info-name input {
+  width: 220rpx;
+  height: 48rpx;
+  background: #F4F4F4;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  display: flex;
+  align-items: center;
+  padding-left: 8rpx;
+  margin-right: 22rpx;
+}
+
+.user-info-phone input {
+  width: 342rpx;
+  height: 48rpx;
+  background: #F4F4F4;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  padding-left: 8rpx;
+}
+
+.next-order {
+  width: 550rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  border: 1rpx solid #979797;
+  font-size: 39rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0rpx 65rpx;
+  margin-top: 40rpx;
+}
+
+.denglu-mork{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(225, 225, 225, 0.1);
+  z-index: 1200;
+}
+
+/*  */
+swiper{
+  width: 295px;
+  height: 60px;
+}

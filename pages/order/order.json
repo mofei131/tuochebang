@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "navbar": "/component/navbar/index",
+    "kefu": "/component/kefu/kefu"
+  },
+  "enablePullDownRefresh": true
+}

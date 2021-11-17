@@ -1,0 +1,11 @@
+<view>
+  <view class="list">
+    <view wx:for="{{dataList}}" class="item" wx:key="index">
+      <view>
+        <view class="title">{{item.note}}</view>
+        <view class="time">{{item.create_time}}</view>
+      </view>
+      <view class="type">{{item.log}}</view>
+    </view>
+  </view>
+</view>

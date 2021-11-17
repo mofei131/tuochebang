@@ -1,0 +1,27 @@
+<view>
+  <view class="title"><view></view>车辆照片</view>
+  <view class="cardImg">
+    <view  class="cardImg-item" >
+      <view class="item-title">照片一</view>
+      <image src="{{cardImg.photo1}}" mode="scaleToFill"></image>
+      <view class="item-title">照片二</view>
+      <image src="{{cardImg.photo2}}" mode="scaleToFill"></image>
+      <view class="item-title">照片三</view>
+      <image src="{{cardImg.photo3}}" mode="scaleToFill"></image>
+      <view class="item-title">照片四</view>
+      <image src="{{cardImg.photo4}}" mode="scaleToFill"></image>
+      <view class="item-title">照片五</view>
+      <image src="{{cardImg.photo5}}" mode="scaleToFill"></image>
+    </view>
+  </view>
+  <view class="title"><view></view>司机签字</view>
+  <view class="qianming">
+    <image src="{{cardImg.sign}}" mode="aspectFit"></image>
+  </view>
+  <view class="title"><view></view>驳回理由</view>
+  <view class="fanbo-liyou">
+    <textarea placeholder="请输入驳回理由，通过验车则无需填写" bindinput="huoquFanbo" ></textarea>
+  </view>
+  <view class="tongguo-botom" bindtap="tongguoCard">通过验车</view>
+  <view class="bohui-botom" bindtap="bohuiCard">驳回验车</view>
+</view>

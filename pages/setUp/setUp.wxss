@@ -1,0 +1,26 @@
+page {
+  background-color: #F4F7F7;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  height: 96rpx;
+  margin: 20rpx;
+  padding: 0rpx 20rpx;
+  border-radius: 14rpx;
+}
+
+.title {
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #51565D;
+}
+
+.list image {
+  width: 66rpx;
+  height: 66rpx;
+}

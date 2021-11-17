@@ -1,0 +1,30 @@
+<view>
+  <view class="top-id">订单编号：{{id}}</view>
+  <view class="top-star">
+    <view class="top-star-title">服务评价</view>
+    <view class="top-star-img">
+      <image bindtap="evaluateStar" data-num="1" src="{{starNumber >= 1 ? '/image/xing1.png' : '/image/xing2.png'}}"></image>
+      <image bindtap="evaluateStar" data-num="2" src="{{starNumber >= 2 ? '/image/xing1.png' : '/image/xing2.png'}}"></image>
+      <image bindtap="evaluateStar" data-num="3" src="{{starNumber >= 3 ? '/image/xing1.png' : '/image/xing2.png'}}"></image>
+      <image bindtap="evaluateStar" data-num="4" src="{{starNumber >= 4 ? '/image/xing1.png' : '/image/xing2.png'}}"></image>
+      <image bindtap="evaluateStar" data-num="5" src="{{starNumber >= 5 ? '/image/xing1.png' : '/image/xing2.png'}}"></image>
+    </view>
+  </view>
+  <view class="border-1"></view>
+  <view class="content">
+    <textarea placeholder="请填写商品评价，最多200字" maxlength="200"></textarea>
+    <view class="content-pric">
+      <view wx:for="{{pric}}" class="content-pric-item">
+        <image src="{{item}}"></image>
+        <view class="del-icon">
+          <image bindtap="delImg" data-index="{{index}}" src="/image/rem_img.png"></image>
+        </view>
+      </view>
+      <view class="add-icon">
+        <image bindtap="uplodeImg" src="/image/add_img.png"></image>
+        <view class="add-icon-number">{{pric.length}}/4</view>
+      </view>
+    </view>
+  </view>
+  <view class="sub-botm">提交评价</view>
+</view>

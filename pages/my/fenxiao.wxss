@@ -1,0 +1,123 @@
+page {
+  background-color: #F4F7F7;
+}
+
+.top-bg {
+  background-image: url('http://hlstore.yimetal.cn/img/paiming_bg.png');
+  height: 311rpx;
+  background-size: 100%;
+  margin: 20rpx;
+  position: relative;
+  padding: 44rpx 0rpx 0rpx 44rpx;
+}
+
+.top-img {
+  display: flex;
+  align-items: center;
+  margin-bottom: 75rpx;
+}
+
+.top-img image {
+  width: 102.37rpx;
+  height: 102.37rpx;
+  margin-right: 18rpx;
+}
+
+.top-info {
+  text-align: center
+}
+
+.name {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 6rpx;
+}
+
+.vip_name {
+  width: 159rpx;
+  height: 35rpx;
+  background: #6765FF;
+  border-radius: 18rpx;
+  font-size: 21rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vip_name image {
+  width: 29.35rpx;
+  height: 29.35rpx;
+  margin-left: 9rpx;
+}
+
+.num {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.num span {
+  font-size: 56rpx;
+  font-family: DINCondensed-Bold, DINCondensed;
+  color: #E1B12F;
+  letter-spacing: -2px;
+}
+
+.paihang {
+  width: 154rpx;
+  height: 50rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  background-color: #EB4A32;
+  position: absolute;
+  right: 0rpx;
+  top: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 30rpx;
+  border-bottom-left-radius: 30rpx;
+}
+
+.item {
+  background: #FFFFFF;
+  border-radius: 14rpx;
+  margin: 20rpx;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+}
+
+.item-info image {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 37rpx;
+}
+
+.item-info text {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #666666;
+}
+
+.item-number {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+}

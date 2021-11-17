@@ -1,0 +1,25 @@
+<view class="dingdan">订单编号:1233567</view>
+<view class="view_page">
+  <view class="content_cls">
+    <view class="cross_column">
+      <label>服务评价</label>
+      <image class="imagecls" wx:for="{{5}}" wx:key="{{index}}" data-name="total" data-item="{{item}}" src="{{item-total+1>0?'../../image/entity_stars.png':'../../image/empty_stars.png'}}" bindtap="img_bind" wx:key="index"></image>
+    </view>
+  </view>
+</view>
+<view class="hui"></view>
+<view class="box">
+			<textarea maxlength="200" class="duoh" type="text" placeholder="请填写服务评价" placeholder-style="color: #676767;" bindinput="zishu"></textarea>
+			<view class="xianzhi">{{zishu}}/200</view>
+			<view class="upload">
+				<view class="yshangc" wx:for="{{imgpth}}" wx:key="index">
+					<image class="yjshang" src="{{item}}"></image>
+					<image class="close" src="http://hlstore.yimetal.cn/2021/tuochebang/scclose.png" data-index="{{index}}" bindtap="close"></image>
+				</view>
+				<view class="dianji" bindtap="upload" wx:if="{{imgpth.length < 4}}">
+					<image src="http://hlstore.yimetal.cn/2021/tuochebang/scimages.png"></image>
+					<view class="zhangshu">{{imgpth.length}}/4</view>
+				</view>
+			</view>
+		</view>
+    <view class="tibtn" bindtap="tijiao">提交评价</view>

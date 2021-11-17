@@ -1,0 +1,20 @@
+<view>
+		<view class="paytop">
+			<view>立即支付</view>
+			<view>￥{{money}}</view>
+		</view>
+		<view class="paybot">
+				<view class="gou">请勾选支付方式</view>
+				<view class="weixin">
+					<view class="left">
+						<image src="http://hlstore.yimetal.cn/2021/tuochebang/wxpay.png"></image>
+						<view>微信支付</view>
+					</view>
+					<view class="right">
+						<image bindtap="agreementSuccess" class="fix"
+							src="{{agreement?'http://hlstore.yimetal.cn/2021/tuochebang/Oval@2x.png':'http://hlstore.yimetal.cn/2021/tuochebang/Oval@2x(1).png'}}"></image>
+					</view>
+				</view>
+		</view>
+		<view class="btn" bindtap="pay">立即支付</view>
+	</view>

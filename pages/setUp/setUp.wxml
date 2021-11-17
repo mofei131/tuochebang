@@ -1,0 +1,26 @@
+<view>
+  <view class="list" bindtap="toPage" data-url="/pages/setUp/setNickname">
+    <view class="title">个人资料</view>
+    <image src="/image/my_hui.png"></image>
+  </view>
+  <view class="list" bindtap="toPage" data-url="/pages/setUp/setPhome">
+    <view class="title">修改手机号</view>
+    <image src="/image/my_hui.png"></image>
+  </view>
+  <view class="list" bindtap="qingli" data-url="">
+    <view class="title">清理缓存</view>
+    <image src="/image/my_hui.png"></image>
+  </view>
+  <view class="list" bindtap="toPage" data-url="/pages/setUp/yinsi">
+    <view class="title">协议隐私</view>
+    <image src="/image/my_hui.png"></image>
+  </view>
+  <view class="list" bindtap="toPage" data-url="/pages/setUp/yonghu">
+    <view class="title">用户协议</view>
+    <image src="/image/my_hui.png"></image>
+  </view>
+  <!-- <view class="list" bindtap="toPage" data-url="/pages/setUp/shiyong">
+    <view class="title">使用说明</view>
+    <image src="/image/my_hui.png"></image>
+  </view> -->
+</view>

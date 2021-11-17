@@ -1,0 +1,118 @@
+.content {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1500;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content-i {
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 355rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx 16rpx 0rpx 0rpx;
+}
+
+.get-user {
+  display: flex;
+  justify-content: space-between;
+  padding: 24rpx 0rpx;
+  border-bottom: 1rpx solid #eee;
+  margin: 0 24rpx;
+}
+
+.get-user image {
+  width: 39.23rpx;
+  height: 39.23rpx;
+}
+
+.get-user-i {
+  display: flex;
+  align-items: center;
+}
+
+.get-user-i image {
+  width: 48rpx;
+  height: 48rpx;
+  border: 1rpx solid #eee;
+  margin-right: 16rpx;
+}
+
+.get-user-t {
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: bold;
+  color: #333333;
+  letter-spacing: 2rpx;
+}
+
+.get-user-t span {
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  margin-left: 4rpx;
+  letter-spacing: 0rpx;
+}
+
+.get-user-info {
+  padding: 24rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+}
+
+.get-user-b {
+  display: flex;
+  align-items: center;
+  margin: 0rpx 24rpx;
+  padding: 24rpx 0rpx;
+  justify-content: space-between;
+}
+
+.get-user-b-j {
+  width: 339rpx;
+  height: 98rpx;
+  background: #FFFFFF;
+  border-radius: 8rpx;
+  border: 2rpx solid #E5E5E5;
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.get-user-b-t {
+  width: 339rpx;
+  height: 98rpx;
+  background: #40A9FF;
+  border-radius: 8rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button{
+  width: 200rpx;
+  height: 98rpx;
+  background: #40A9FF;
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

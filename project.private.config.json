@@ -1,0 +1,156 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "订单",
+          "pathName": "pages/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "提现",
+          "pathName": "pages/my/ftion/tixian",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "余额明细",
+          "pathName": "pages/my/ftion/mingxi",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的分销",
+          "pathName": "pages/my/fenxiao",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的提成",
+          "pathName": "pages/my/ticheng",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "赚钱攻略",
+          "pathName": "pages/my/zhuanqian",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "关联订单",
+          "pathName": "pages/order/relationOrder",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "使用说明",
+          "pathName": "pages/instructions/instructions",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "设置",
+          "pathName": "pages/setUp/setUp",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "修改个人资料",
+          "pathName": "pages/setUp/setNickname",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "修改手机号",
+          "pathName": "pages/setUp/setPhome",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "查看验车",
+          "pathName": "pages/order/checkCar",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "评价",
+          "pathName": "pages/order/evaluate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "消息通知",
+          "pathName": "pages/index/notice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "填写订单",
+          "pathName": "pages/order/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选择地址",
+          "pathName": "pages/order/address",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/signIn/signIn",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "评价",
+          "pathName": "pages/order/pingjia",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单支付",
+          "pathName": "pages/index/pay",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "修改手机号",
+          "pathName": "pages/setUp/setPhome",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "排行榜",
+          "pathName": "pages/my/paihang",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/order/orderdet",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

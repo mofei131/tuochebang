@@ -1,0 +1,108 @@
+.map_box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0px;
+  right: 0px;
+}
+
+#navi_map {
+  width: 100%;
+  height: 100%;
+}
+
+.flex-style {
+  position: fixed;
+  z-index: 1000;
+  width: 680rpx;
+  height: 64rpx;
+  background: #FFFFFF;
+  border-radius: 39rpx;
+  border: 1rpx solid #30AEFF;
+  margin: 18rpx 35rpx;
+  display: flex;
+  align-items: center;
+}
+
+.flex-style input {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  width: 85%;
+}
+
+.flex-style image {
+  width: 31.67rpx;
+  height: 31.67rpx;
+  margin: 0 20rpx;
+}
+
+.i-data {
+  width: 630rpx;
+  height: 550rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 1rpx 44rpx 0rpx rgba(0, 0, 0, 0.2);
+  border-radius: 28rpx;
+  position: absolute;
+  bottom: 0;
+  left: 20rpx;
+  right: 20rpx;
+  margin-bottom: 68rpx;
+  padding: 40rpx;
+}
+
+.i-h {
+  height: 450rpx;
+  overflow: scroll;
+}
+
+.i-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eee;
+  padding: 15rpx 0rpx;
+}
+
+.i-name {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  margin-bottom: 4rpx;
+}
+
+.i-address {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+
+.i-data image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.i-sbimt {
+  width: 550rpx;
+  height: 80rpx;
+  background: #30AEFF;
+  border-radius: 40rpx;
+  font-size: 39rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

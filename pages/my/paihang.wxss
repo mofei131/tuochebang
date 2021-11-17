@@ -1,0 +1,149 @@
+.zifen{
+  font-size: 30rpx;
+font-family: Helvetica;
+color: #EB4A32;
+}
+.ziname{
+  font-size: 30rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #1E2432;
+margin-left: 22rpx;
+}
+.zipai{
+  font-size: 44rpx;
+font-family: Helvetica;
+color: #EB4A32;
+margin-right: 6rpx;
+}
+.zileft{
+  display: flex;
+  align-items: center;
+  height: 60rpx;
+}
+.ziji{
+  width: 750rpx;
+height: 151rpx;
+background: #FFFFFF;
+position: fixed;
+bottom: 0;
+left: 0;
+padding: 22rpx 60rpx 0 42rpx;
+display: flex;
+justify-content: space-between;
+box-sizing: border-box;
+}
+.kaifen{
+  font-size: 30rpx;
+font-family: Helvetica;
+color: #30AEFF;
+margin-right: 45rpx;
+}
+.kainame{
+  font-size: 30rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #1E2432;
+margin-left: 22rpx;
+}
+.shu{
+  font-size: 44rpx;
+font-family: Helvetica;
+color: #8CD2FF;
+width: 80rpx;
+text-align: center;
+}
+.kaiitem{
+  display: flex;
+  justify-content: space-between;
+  height: 98rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+  align-items: center;
+}
+.kaileft{
+  display: flex;
+  align-items: center;
+}
+.kaisi{
+  width: 720rpx;
+background: #FFFFFF;
+border-radius: 6rpx;
+margin: 16rpx auto;
+}
+.kaiimg{
+  width: 60rpx;
+height: 60rpx;
+border-radius: 60rpx;
+}
+.cetou{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 150rpx;
+  position: absolute;
+  top: 42rpx;
+  z-index: 0;
+  left: 23rpx;
+}
+page{
+  background: #F7F4F4;
+}
+.zontou{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 150rpx;
+  position: absolute;
+  top: 55rpx;
+  z-index: 0;
+  left: 10rpx;
+}
+.zonming{
+  font-size: 38rpx;
+font-family: Helvetica;
+color: #FFFFFF;
+margin-top: 36rpx;
+text-align: center;
+}
+.zonname{
+  font-size: 25rpx;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #FFFFFF;
+text-align: center;
+max-width: 198rpx;
+white-space: nowrap;
+text-overflow: ellipsis;
+overflow: hidden;
+word-break: break-all;
+}
+.cepai{
+  margin-top: 66rpx;
+  position: relative;
+}
+.zonpai{
+  position: relative;
+}
+.topbck{
+  width: 750rpx;
+  height: 430rpx;
+  background: #30AEFF;
+}
+.sanfen{
+  display: flex;
+  width: 595rpx;
+  justify-content: space-between;
+  margin: auto;
+}
+.zonimg{
+  width: 176rpx;
+  height: 264rpx;
+  position: relative;
+  z-index: 2;
+}
+.ceimg{
+  width: 138rpx;
+  height: 208rpx;
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  display: block;
+}

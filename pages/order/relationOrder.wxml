@@ -1,0 +1,38 @@
+<view>
+  <view class="list">
+    <view class="{{index == liang ? 'item_y' : 'item_n'}}" wx:for="{{stacList}}" wx:key="index" data-id="{{item.type}}" bindtap="wanc">{{item.title}}</view>
+  </view>
+
+  <view class="order-list">
+    <view class="order-item" wx:for="{{orderList}}" wx:key="index">
+    <view bindtap="todet" data-id="{{item.id}}">
+      <view class="order-id">
+        <view class="item-id">订单号：{{item.orderno}}</view>
+        <view class="item-statc" wx:if="{{item.status == 0 || item.status == 2}}">进行中</view>
+        <view class="item-statc" wx:if="{{item.status == 4}}">已完成</view>
+      </view>
+      <view class="item-banche">{{item.trailer_type.name}}</view>
+      <view class="order-info">
+        <view class="item-qi"><span>装</span>{{item.start_name}}</view>
+        <view class="item-zhifu_type" wx:if="{{item.status == 0}}">未支付</view>
+        <view class="item-zhifu_type" wx:if="{{item.status > 0 && item.pay_type == 2}}"><span>定金：￥{{item.dingjin}}</span></view>
+        <view class="item-zhifu_type" wx:if="{{item.status > 0 && item.pay_type == 3}}">到付</view>
+        <view class="item-zhifu_type" wx:if="{{item.status > 0 && item.pay_type == 1}}">已支付</view>
+      </view>
+      <view class="order-info2">
+        <view class="item-zhong"><span>卸</span>{{item.end_name}}</view>
+        <view class="item-price">￥{{item.money}}</view>
+      </view>
+      </view>
+      <view class="ordre-type" wx:if="{{item.status == 2 || item.status == 0}}">
+        <view class="item-btom1" wx:if="{{item.status > 0 && item.pay_type == 2}}" bindtap="payOrder" data-item="{{item}}">支付运费</view>
+        <view class="item-btom1" data-mobile="{{item.driver.mobile}}" bindtap="lianxi" >联系司机</view>
+        <view class="item-btom1" wx:if="{{item.yanche.status == 1 && item.send_mobile == userInfo.mobile}}" data-id="{{item.id}}" bindtap="lookYanche">查看验车</view>
+        <view class="item-btom2" wx:if="{{item.yanche.status == -1 && item.receive_uid == item.user_id}}">已驳回</view>
+        <view v-if="{{item.receive_uid == userInfo.id}}">
+          <view class="item-btom1" wx:if="{{item.status == 2 && item.pay_type != 2}}" data-id="{{item.id}}" bindtap="wancheng">完成订单</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

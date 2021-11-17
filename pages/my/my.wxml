@@ -1,0 +1,53 @@
+<view>
+  <view class="top-bg" style="padding-top:{{navBarHeight}}px;">
+    <view class="top-user">
+      <image src="{{touxiang}}" mode="scaleToFill"></image>
+      <text>{{name}}</text>
+    </view>
+    <view class="top-info">
+      <view class="top-info-yue">
+        <view class="top-info-yue-yue">{{yue}}</view>
+        <view class="top-info-yue-test">余额</view>
+      </view>
+      <view class="top-info-tx" bindtap="toTixian">立即提现</view>
+      <view class="top-info-mx" bindtap="toMingxi">余额明细<image src="/image/my_bai.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="list">
+    <view class="list-title">我的推广</view>
+    <view class="list-list">
+      <view class="list-item" wx:for="{{list}}" bindtap="goPage" data-id="{{item.id}}" data-url="{{item.url}}" wx:key="index">
+        <image src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <view class="list-item2" wx:for="{{list2}}" bindtap="goPage" data-url="{{item.url}}" wx:key="index">
+      <view class="item-class">
+        <image src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+      <view class="item-icon">
+        <text wx:if="{{index == 3}}">{{kefu_phone}}</text>
+        <image src="/image/my_hui.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="huoqu" wx:if="{{shouquan}}">
+		<image src="http://hlstore.yimetal.cn/2021/tuochebang/wxgficon.png" mode=""></image>
+		<view class="btnbor"></view>
+		<view class="shao">需要获取本机手机号、头像、昵称等</view>
+		<!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权登录</button> -->
+    <button open-type='getUserInfo' bindtap='getUserInfo'>授权登录</button>
+  </view>
+        <view class="jds" bindtap="ancl" wx:if="{{cun}}">
+        <view class="baidi">
+        <image src="{{fxma}}"></image>
+        <button class="bendi" bindtap="saveImgToLocal">保存到相册</button>
+        </view>
+      </view>
+</view>

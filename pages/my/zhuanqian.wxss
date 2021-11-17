@@ -1,0 +1,40 @@
+page {
+  background-color: #F4F7F7;
+}
+
+.list {
+  background: #FFFFFF;
+  margin: 20rpx;
+  /* height: 422rpx; */
+  border-radius: 14rpx;
+  overflow: hidden;
+}
+
+.item {
+  box-shadow: 0rpx 0rpx 19rpx 0rpx rgba(0, 0, 0, 0.11);
+  align-items: center;
+  height: 80rpx;
+  border-radius: 14rpx;
+  padding: 0rpx 20rpx 0rpx 38rpx;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #30AEFF;
+}
+
+.item image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.title {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  padding: 20rpx 35rpx;
+}

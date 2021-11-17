@@ -1,0 +1,50 @@
+<!--pages/my/paihang.wxml-->
+<view class="topbck">
+<view class="sanfen">
+<view class="cepai">
+  <image class="cetou" wx:if="{{pailist[1].avater}}" src="{{pailist[1].avater}}"></image>
+	<image class="cetou" wx:else  src="http://hlstore.yimetal.cn/2021/tuochebang/my_touxiang.png"></image>
+  <image class="ceimg" src="http://hlstore.yimetal.cn/2021/tuochebang/55f5907f-bff5-4ffd-8042-731e6bd9f5c3.png"></image>
+  <view class="zonname">{{pailist[1].nickname}}</view>
+  <view class="zonming">{{pailist[1].child_num}}</view>
+</view>
+<view class="zonpai">
+  <image class="zontou" wx:if="{{pailist[0].avater}}" src="{{pailist[0].avater}}"></image>
+	<image class="zontou" wx:else  src="http://hlstore.yimetal.cn/2021/tuochebang/my_touxiang.png"></image>
+  <image class="zonimg" src="http://hlstore.yimetal.cn/2021/tuochebang/919ab7e1-4897-4690-89c5-2a773c9989e0.png"></image>
+  <view class="zonname">{{pailist[0].nickname}}</view>
+  <view class="zonming">{{pailist[0].child_num}}</view>
+</view>
+<view class="cepai">
+  <image class="cetou" style="left:34rpx" wx:if="{{pailist[2].avater}}" src="{{pailist[2].avater}}"></image>
+	<image class="cetou" wx:else style="left:34rpx"  src="http://hlstore.yimetal.cn/2021/tuochebang/my_touxiang.png"></image>
+  <image class="ceimg" src="http://hlstore.yimetal.cn/2021/tuochebang/49c3ad62-4a25-4666-9492-0f5b2298651e.png"></image>
+  <view class="zonname">{{pailist[2].nickname}}</view>
+  <view class="zonming">{{pailist[2].child_num}}</view>
+</view>
+</view>
+</view>
+<view class="kaisi">
+<view class="kaiitem" wx:for="{{pailist}}" wx:key="index" wx:if="{{index>2}}">
+<view class="kaileft">
+<view class="shu">{{index+1}}</view>
+<image class="kaiimg" wx:if="{{item.avater}}" src="{{item.avater}}"></image>
+<image class="kaiimg" wx:else src="http://hlstore.yimetal.cn/2021/tuochebang/my_touxiang.png"></image>
+<view class="kainame">{{item.nickname}}</view>
+</view>
+<view class="kairight">
+<view class="kaifen">{{item.child_num}}</view>
+</view>
+</view>
+</view>
+<view class="ziji">
+<view class="zileft">
+  <vie class="zipai">{{me.rank}}</vie>
+  <image class="kaiimg" wx:if="{{me.avater}}" src="{{me.avater}}"></image>
+  <image class="kaiimg" wx:else src="http://hlstore.yimetal.cn/2021/tuochebang/my_touxiang.png"></image>
+  <view class="ziname">{{me.nickname}}</view>
+</view>
+<view class="ziright">
+<view class="zifen">{{me.child_num}}</view>
+</view>
+</view>

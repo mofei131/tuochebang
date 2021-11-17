@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/notice",
+    "pages/index/pay",
+    "pages/index/noticedet",
+
+    "pages/order/index",
+    "pages/order/address",
+    "pages/order/order",
+    "pages/order/relationOrder",
+    "pages/order/checkCar",
+    "pages/order/evaluate",
+    "pages/order/pingjia",
+    "pages/order/orderdet",
+
+    "pages/my/my",
+    "pages/my/ftion/tixian",
+    "pages/my/ftion/mingxi",
+    "pages/my/fenxiao",
+    "pages/my/ticheng",
+    "pages/my/zhuanqian",
+    "pages/my/paihang",
+
+    "pages/instructions/instructions",
+    "pages/setUp/setUp",
+    "pages/setUp/setNickname",
+    "pages/setUp/setPhome",
+    "pages/setUp/yinsi",
+    "pages/setUp/yonghu",
+    "pages/setUp/shiyong",
+
+    "pages/signIn/signIn"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#30AEFF",
+    "navigationBarTitleText": "拖车邦",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance":50
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#9EA3A7",
+    "selectedColor": "#30AEFF",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "iconPath": "/image/home_n.png",
+        "selectedIconPath": "/image/home_y.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "/image/order_n.png",
+        "selectedIconPath": "/image/order_y.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "/image/my_n.png",
+        "selectedIconPath": "/image/my_y.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

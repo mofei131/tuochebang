@@ -1,0 +1,31 @@
+<view class="content">
+  <!-- 获取用户信息 -->
+  <view class="content-i" wx:if="{{get_user}}">
+    <view class="get-user">
+      <view class="get-user-i">
+        <image src=""></image>
+        <view class="get-user-t">拖车邦<span>申请</span></view>
+      </view>
+      <image src="/image/i.png"></image>
+    </view>
+    <view class="get-user-info">获取您的用户信息</view>
+    <view class="get-user-b">
+      <view class="get-user-b-j" bindtap="noGetUser">拒绝</view>
+      <view class="get-user-b-t" bindtap="getUserProfile">同意</view>
+    </view>
+  </view>
+  <!-- 获取手机号 -->
+  <view class="content-i" wx:if="{{get_phone}}">
+    <view class="get-user">
+      <view class="get-user-i">
+        <image src=""></image>
+        <view class="get-user-t">拖车邦<span>申请</span></view>
+      </view>
+      <image src="/image/i.png"></image>
+    </view>
+    <view class="get-user-info">获取您的手机号码</view>
+    <view class="get-user-b">
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">同意</button>
+    </view>
+  </view>
+</view>

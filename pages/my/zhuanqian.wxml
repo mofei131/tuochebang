@@ -1,0 +1,8 @@
+<view>
+  <view class="list" wx:for="{{list}}" wx:key="index">
+    <view bindtap="show1" data-index="{{index}}" class="item">{{item.title}}
+      <image src="{{index == hand ? '/image/zq-guan.png' : '/image/zq-kai.png'}}"></image>
+    </view>
+    <view class="title" wx:if="{{index == hand}}">{{item.content}}</view>
+  </view>
+</view>

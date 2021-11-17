@@ -1,0 +1,9 @@
+.nodes{
+  width: 720rpx;
+  margin: auto;
+  border-radius: 10rpx;
+  background: #fff;
+  padding: 18rpx;
+  height: 100%;
+  box-sizing: border-box;
+}

@@ -1,0 +1,10 @@
+<view>
+  <view class="list">
+    <view class="item" wx:for="{{noticeList}}" wx:key="index" data-type="{{item.type}}" data-id="{{item.id}}" bindtap="audio">
+      <view class="title">{{item.title}}
+        <view wx:if="{{item.is_read == 0}}" class="icon"></view>
+      </view>
+      <view class="time">{{item.create_time}}</view>
+    </view>
+  </view>
+</view>

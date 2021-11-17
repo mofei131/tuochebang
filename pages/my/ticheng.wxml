@@ -1,0 +1,16 @@
+<view>
+  <view class="top-bg">
+    <view class="top-shouyi">账户收益<span>{{jifen}}</span></view>
+    <image src="/image/jifen.png"></image>
+  </view>
+
+  <view class="list">
+    <view class="item" wx:for="{{list}}"style="{{(index + 1) == list.length ? 'border-bottom: 0rpx solid #fff;' : ''}}" wx:key="index">
+      <view>
+        <view class="name">{{item.note}}</view>
+        <view class="time">{{item.create_time}}</view>
+      </view>
+      <view class="type">+{{item.log}}</view>
+    </view>
+  </view>
+</view>

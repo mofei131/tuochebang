@@ -1,0 +1,24 @@
+<view>
+  <view class="top-bg">
+    <view class="top-img">
+      <image src="{{user.touxiang}}"></image>
+      <view class="top-info">
+        <view class="name">{{user.name}}</view>
+        <!-- <view class="vip_name">{{user.vip_name}}<image src="/image/jinpai.png"></image></view> -->
+      </view>
+    </view>
+    <view class="num">已邀请用户<span> {{count}} </span>人</view>
+    <view class="paihang" bindtap="topai">排行榜</view>
+  </view>
+
+  <view>
+    <view class="item" wx:for="{{list}}" wx:key="index">
+      <view class="item-info">
+        <image src="{{touxiang}}" wx:if="{{!item.avater}}"></image>
+        <image src="{{item.avater}}" wx:else></image>
+        <text>{{item.nickname}}</text>
+      </view>
+      <view class="item-number">{{item.mobile}}</view>
+    </view>
+  </view>
+</view>

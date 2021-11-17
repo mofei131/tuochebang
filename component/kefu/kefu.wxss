@@ -1,0 +1,14 @@
+/**可拖动悬浮按钮样式表**/
+.btn_Suspension {
+  position: fixed;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.Suspension_logo {
+  height: 66rpx;
+  width: 66rpx;
+}

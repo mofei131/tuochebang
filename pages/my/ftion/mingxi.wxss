@@ -1,0 +1,38 @@
+page {
+  background-color: #F4F7F7;
+}
+
+.list {
+  background: #FFFFFF;
+}
+
+.item {
+  margin: 0rpx 40rpx;
+  padding: 25rpx 0rpx;
+  border-bottom: 1rpx solid #C4C4C4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.title {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+}
+
+.type {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}

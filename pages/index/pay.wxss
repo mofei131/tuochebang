@@ -1,0 +1,75 @@
+/* pages/index/pay.wxss */
+.btn{
+  width: 686rpx;
+  height: 71rpx;
+  background: #30AEFF;
+  border-radius: 35rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 200rpx auto;
+}
+.right image{
+  width: 48rpx;
+  height: 48rpx;
+}
+.left view{
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #666666;
+  margin-left: 40rpx;
+}
+.left image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.left{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.weixin{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.gou{
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+}
+.paybot{
+  width: 750rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 19rpx 0px rgba(0, 0, 0, 0.11);
+  margin-top: 20rpx;
+  padding: 16rpx 46rpx 26rpx 49rpx;
+  box-sizing: border-box;
+}
+.paytop view:nth-child(2){
+  font-size: 50rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: bold;
+  color: #FF3223;
+}
+.paytop view:nth-child(1){
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: bold;
+  color: #666666;
+  margin-bottom: 15rpx;
+}
+.paytop{
+  width: 750rpx;
+  height: 182rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 19rpx 0px rgba(0, 0, 0, 0.11);
+  padding: 26rpx 0 27rpx 0;
+  text-align: center;
+  box-sizing: border-box;
+}

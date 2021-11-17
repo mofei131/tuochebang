@@ -1,0 +1,124 @@
+page {
+  background-color: #F9FAFC;
+}
+
+.top-id {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  margin: 24rpx 32rpx;
+}
+
+.top-star {
+  display: flex;
+  align-items: center;
+  margin: 24rpx 32rpx;
+}
+
+.top-star-title {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  margin-right: 41rpx;
+}
+
+.top-star-img {
+  display: flex;
+  align-items: center;
+}
+
+.top-star-img image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 30rpx;
+}
+
+.border-1 {
+  border-bottom: 1rpx solid #BCBCBC;
+  margin: 0rpx 32rpx;
+}
+
+.content {
+  height: 395rpx;
+  background: #FFFFFF;
+  border-radius: 14rpx;
+  border: 1rpx solid #C9C9C9;
+  margin: 20rpx;
+  padding: 20rpx;
+}
+
+textarea {
+  height: 200rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #676767;
+  margin-bottom: 15rpx;
+}
+
+.content-pric {
+  display: flex;
+  align-items: center;
+}
+
+.content-pric-item {
+  position: relative;
+  width: 161rpx;
+  height: 161rpx;
+  margin-right: 12rpx;
+}
+
+.content-pric-item image {
+  width: 161rpx;
+  height: 161rpx;
+  border-radius: 8rpx;
+}
+
+.del-icon {
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+}
+
+.del-icon image {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.add-icon {
+  font-size: 20rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #979797;
+  width: 161rpx;
+  height: 161rpx;
+  position: relative
+}
+
+.add-icon image {
+  width: 161rpx;
+  height: 161rpx;
+  border-radius: 8rpx;
+}
+
+.add-icon-number {
+  position: absolute;
+  bottom: 30rpx;
+  right: 65rpx;
+}
+
+.sub-botm {
+  height: 70rpx;
+  background: #30AEFF;
+  border-radius: 35rpx;
+  margin: 76rpx 32rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
