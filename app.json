@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/kaiping",
     "pages/index/index",
     "pages/index/notice",
     "pages/index/pay",
@@ -30,7 +31,8 @@
     "pages/setUp/yonghu",
     "pages/setUp/shiyong",
 
-    "pages/signIn/signIn"
+    "pages/signIn/signIn",
+    "pages/signIn/fapiao"
   ],
   "permission": {
     "scope.userLocation": {

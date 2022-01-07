@@ -16,8 +16,9 @@
           <view class="address-dizhi">{{start_card.name}}</view>
           <view class="address-dizhi-info">{{start_card.district}}{{start_card.address}}</view>
         </view>
+        <image src="/image/order_dayu.png"></image>
       </view>
-      <image src="/image/order_dayu.png"></image>
+      
     </view>
     <!-- 终点位置 -->
     <view class="order-address">
@@ -27,8 +28,9 @@
           <view class="address-dizhi">{{end_card.name}}</view>
           <view class="address-dizhi-info">{{end_card.district}}{{end_card.address}}</view>
         </view>
+        <image src="/image/order_dayu.png"></image>
       </view>
-      <image src="/image/order_dayu.png"></image>
+      
     </view>
     <!-- 分割线 -->
     <view class="order-border"></view>
@@ -37,6 +39,22 @@
     <view class="order-luxian">
       <view class="luxian-info">预估里程：<span>{{distance}}km</span></view>
       <view class="luxian-info">预估时间：<span>{{order_h_card}}h</span></view>
+    </view>
+    <!-- 支付方式 -->
+    <view class="order-insurance" wx:if="{{userInfo.is_kefu == 1}}">
+      <view class="zc-time">支付方式：</view>
+      <view class="insurance-list">
+        <view class="insurance-item insurance-item2">
+          <view class="i-item-name">微信支付</view>
+          <image bindtap="choice_shou" data-index="1"
+              src="{{check2 ? '/image/tixian_ye.png' : '/image/tixian_no.png'}}"></image>
+        </view>
+        <view class="insurance-item insurance-item2">
+          <view class="i-item-name">授信支付</view>
+          <image bindtap="choice_shou" data-index="2"
+              src="{{check2 ? '/image/tixian_no.png' : '/image/tixian_ye.png'}}"></image>
+        </view>
+      </view>
     </view>
     <!-- 装车时间 -->
     <view class="zc-card">
@@ -74,8 +92,19 @@
       <view class="card-calss-picker">
         <view class="zc-time">板车类型：</view>
         <picker bindchange="bindPickerChange" value="{{cardList_index}}" range="{{cardList}}" class="leixingShow">
-        <view wx:if="{{leiixngShow}}" style="color: #9c9c9c;">请选择板车类型</view>
+        <view wx:if="{{leiixngShow}}">{{cardList[cardList_index]}}</view>
           <view wx:else>{{cardList[cardList_index]}}</view>
+          <image  src="/image/order_dayu.png"></image>
+        </picker>
+      </view>
+    </view>
+    <!-- 托运车况 -->
+    <view class="card-calss">
+      <view class="card-calss-picker">
+        <view class="zc-time">托运车况：</view>
+        <picker bindchange="bindPickerChange2" value="{{cardList_index2}}" range="{{cardList2}}" class="leixingShow">
+        <view wx:if="{{leiixngShow2}}" style="color: #9c9c9c;">请选择托运车况</view>
+          <view wx:else>{{cardList2[cardList_index2]}}</view>
           <image  src="/image/order_dayu.png"></image>
         </picker>
       </view>
@@ -123,7 +152,7 @@
     <view class="order-cardType">
       <view class="zc-time">打赏小费：</view>
       <!-- value="{{order_xiaofei}}" -->
-      <input type="text" bindinput="huoquXiaofei" placeholder="请输入打赏小费（选填）" />
+      <input type="number" bindinput="huoquXiaofei" placeholder="请输入打赏小费（选填）" />
     </view>
     <!-- 特殊要求 -->
     <view class="order-other">

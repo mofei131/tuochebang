@@ -55,9 +55,18 @@ Page({
     shunum: 0,
 
     denglu: false,
-    scene: 0
+    scene: 0,
+    tanshow:true,
+    tanlist:''
   },
-
+  handleTap(){
+    console.log('禁止关闭')
+  },
+  tanclose(){
+    this.setData({
+      tanshow:false
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -100,7 +109,7 @@ Page({
   map() {
     let that = this
     var myAmapFun = new amapFile.AMapWX({
-      key: 'bd45905078a821a4b50ad67dbc470875'
+      key: 'f9ecff0235b1c6a0415bb2cd7123a86f'
     });
     myAmapFun.getDrivingRoute({
       origin: wx.getStorageSync('start_card').location,
@@ -169,6 +178,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log(wx.getStorageSync('userInfo'))
     if (!wx.getStorageSync('userInfo') || !wx.getStorageSync('userInfo').avater || !wx.getStorageSync('userInfo').nickname) {
       this.setData({
         denglu: true,
@@ -233,6 +243,29 @@ Page({
       console.log(res)
       this.setData({
         shunum: res.data.noread
+      })
+    })
+    wx.login({
+      success(res) {
+        api.login({
+          pid: wx.getStorageSync('scene') ? wx.getStorageSync('scene') : 0,
+          code: res.code
+        }, res => {
+          wx.setStorageSync('userInfo', res.data)
+          wx.removeStorageSync('scene')
+        })
+      }
+    })
+    api.popup({
+      type:2
+    },res=>{
+      if(res.data.tanchuang.length == 0){
+        this.setData({
+          tanshow:false
+        })
+      }
+      this.setData({
+        tanlist:res.data.tanchuang
       })
     })
   },

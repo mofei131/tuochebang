@@ -38,6 +38,10 @@ Page({
     }],
     list2: [{
       icon: '/image/my_dingdan.png',
+      name: '授信余额',
+      url: '/pages/my/ftion/mingxi'
+    },{
+      icon: '/image/my_dingdan.png',
       name: '我的订单',
       url: '/pages/order/order'
     }, {
@@ -52,7 +56,7 @@ Page({
       icon: '/image/my_kefu.png',
       name: '联系客服',
       url: '/kefu'
-    }, {
+    },{
       icon: '/image/my_shezhi.png',
       name: '设置',
       url: '/pages/setUp/setUp'
@@ -61,9 +65,11 @@ Page({
     shouquan: false,
     fxma: '',
     cun: false,
-    scene: ''
+    scene: '',
+    yao:'',
+    shouxin:'',
+    userInfo:''
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -87,7 +93,8 @@ Page({
     this.setData({
       touxiang: wx.getStorageSync('userInfo').avater,
       name: wx.getStorageSync('userInfo').nickname,
-      yue: wx.getStorageSync('userInfo').wallet
+      yue: wx.getStorageSync('userInfo').wallet,
+      userInfo:wx.getStorageSync('userInfo')
     })
     let that = this
     if (!wx.getStorageSync('userInfo').avater || !wx.getStorageSync('userInfo').nickname || !wx.getStorageSync('userInfo')) {
@@ -116,6 +123,20 @@ Page({
         })
       })
     }
+    api.setting({
+      key: 'open_haibao'
+    }, res => {
+      console.log(res.data.data)
+      this.setData({
+        yao: res.data.data == 1 ? true : false
+      })
+    })
+    //获取用户信息
+    api.getUserinfo({
+      user_id: wx.getStorageSync('userInfo').id
+    }, res => {
+      wx.setStorageSync('userInfo', res.data)
+    })
   },
   ancl() {
     this.setData({
@@ -286,10 +307,24 @@ Page({
   // 功能列表跳转
   goPage(e) {
     let cun = this.data.cun
-    if (e.currentTarget.dataset.id == 0) {
-      this.setData({
-        cun: !cun
+    if (e.currentTarget.dataset.url == '/pages/my/ftion/mingxi') {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url+'?type=3',
       })
+      return
+    }
+    if (e.currentTarget.dataset.id == 0) {
+      // console.log(this.data.yao)
+      if(this.data.yao){
+        this.setData({
+          cun: !cun
+        })
+      }else{
+        wx.showToast({
+          title: '未拥有邀请下级权限！',
+          icon:'none'
+        })
+      }
       return
     }
     if (e.currentTarget.dataset.url == '/pages/order/order') {

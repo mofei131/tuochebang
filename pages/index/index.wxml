@@ -53,6 +53,16 @@
       <view class="next-order" bindtap="createOrder">下一步</view>
     </view>
   </view>
+  <view class="boximg" wx:if="{{tanshow}}" bindtap="tanclose">
+			<view class="neibox2">
+				<swiper class="swiper flex-column mx-start sx-stretch" circular autoplay="true" interval="3000" duration="500" indicator-dots indicator-active-color="#30AEFF" indicator-color="#fff">
+					<swiper-item catchtap="handleTap" class="flex-column mx-start sx-stretch" wx:for="{{tanlist}}" wx:key="index">
+						<image class="swiper-item backImgFull" src="{{item}}"></image>
+					</swiper-item>
+				</swiper> 
+			</view>
+			<image class="tanclose" src="http://hlstore.yimetal.cn/2021/tuochebang/null.png" mode="aspectFit" bindtap="tanclose"></image>
+		</view>
   <view class="anbox" wx:if="{{shou}}">
     <view class="neibox">
       <view class="ntitle">提示</view>
@@ -66,5 +76,4 @@
 </view>
 
 <view wx:if="{{denglu}}" class="denglu-mork" bindtap="noGetUser2">
-
 </view>

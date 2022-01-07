@@ -149,6 +149,12 @@
           "pathName": "pages/order/orderdet",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "开具发票",
+          "pathName": "pages/signIn/fapiao",
+          "query": "",
+          "scene": null
         }
       ]
     }

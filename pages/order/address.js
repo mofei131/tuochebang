@@ -57,7 +57,7 @@ Page({
   map() {
     var that = this;
     var myAmapFun = new amapFile.AMapWX({
-      key: 'bd45905078a821a4b50ad67dbc470875'
+      key: 'f9ecff0235b1c6a0415bb2cd7123a86f'
     });
     myAmapFun.getDrivingRoute({
       origin: this.data.markers[0].lat_lon,
@@ -95,7 +95,7 @@ Page({
     var keywords = e.detail.value;
     // var key = config.Config.key;
     var myAmapFun = new amapFile.AMapWX({
-      key: 'bd45905078a821a4b50ad67dbc470875'
+      key: 'f9ecff0235b1c6a0415bb2cd7123a86f'
     });
     myAmapFun.getInputtips({
       keywords: keywords,

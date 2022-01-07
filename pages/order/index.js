@@ -67,6 +67,9 @@ Page({
     cardList: [],
     cardList_: [],
     cardList_index: 0,
+    // 托运车况
+    cardList2: ['新车','二手车','报废车','特殊车辆'],
+    cardList_index2: 0,
     // 支付方式
     payType: ['全款', '定金支付', '到付'],
     payType_index: 0,
@@ -95,10 +98,26 @@ Page({
     touchStartY: 0, // 触屏起始点y 
     timeShow:true,
     leiixngShow:true,
+    leiixngShow2:true,
     payShow:true,
-    dianShow:true
+    dianShow:true,
+    xun:true,
+    xun2:true,
+    check2:true,
+    userInfo:''
   },
-
+  //微信or授信
+  choice_shou(e){
+    if(e.currentTarget.dataset.index == 1){
+      this.setData({
+        check2:true
+      })
+    }else{
+      this.setData({
+        check2:false
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -109,7 +128,7 @@ Page({
   map() {
     var that = this;
     var myAmapFun = new amapFile.AMapWX({
-      key: 'bd45905078a821a4b50ad67dbc470875'
+      key: 'f9ecff0235b1c6a0415bb2cd7123a86f'
     });
     myAmapFun.getDrivingRoute({
       origin: this.data.start_card.location,
@@ -153,6 +172,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      userInfo:wx.getStorageSync('userInfo')
+    })
     console.log(wx.getSystemInfoSync())
     console.log(wx.getMenuButtonBoundingClientRect())
     let that = this
@@ -291,10 +313,29 @@ Page({
               if (diqu[i].citys[j].city == start_region_shi) {
                 for (var k in diqu[i].citys[j].areas) {
                   if (diqu[i].citys[j].areas[k].area == start_region_qu) {
+                    console.log('地区打印')
+                    console.log(diqu[i].citys[j].areas[k].area)
                     this.setData({
                       order_start_provinceid: diqu[i].provinceid,
                       order_start_cityid: diqu[i].citys[j].cityid,
                       order_start_areaid: diqu[i].citys[j].areas[k].areaid,
+                    })
+                  }else if(this.data.xun){
+                    api.setAreasinfo({
+                      area_name: start_region_qu,
+                      cityid:diqu[i].citys[j].cityid
+                    }, res => {
+                      console.log('地区存储')
+                      console.log(res.data.areaid)
+                      this.setData({
+                        order_start_areaid: res.data.areaid,
+                        
+                      })
+                    })
+                    this.setData({
+                      order_start_provinceid: diqu[i].provinceid,
+                      order_start_cityid: diqu[i].citys[j].cityid,
+                      xun:false
                     })
                   }
                 }
@@ -309,10 +350,28 @@ Page({
             for (var j in diqu[i].citys) {
                 for (var k in diqu[i].citys[j].areas) {
                   if (diqu[i].citys[j].areas[k].area == start_region_qu) {
+                    console.log('地区打印')
+                    console.log(diqu[i].citys[j].areas[k].area)
                     this.setData({
                       order_start_provinceid: diqu[i].provinceid,
                       order_start_cityid: diqu[i].citys[j].cityid,
                       order_start_areaid: diqu[i].citys[j].areas[k].areaid,
+                    })
+                  }else if(this.data.xun){
+                    console.log(start_region_qu)
+                    api.setAreasinfo({
+                      area_name: start_region_qu,
+                      cityid:diqu[i].citys[j].cityid
+                    }, res => {
+                      console.log('地区存储2')
+                      this.setData({
+                        order_start_areaid: res.data.areaid,
+                      })
+                    })
+                    this.setData({
+                      order_start_provinceid: diqu[i].provinceid,
+                    order_start_cityid: diqu[i].citys[j].cityid,
+                    xun:false
                     })
                   }
                 }
@@ -340,10 +399,28 @@ Page({
               if (diqu[i].citys[j].city == end_region_shi) {
                 for (var k in diqu[i].citys[j].areas) {
                   if (diqu[i].citys[j].areas[k].area == end_region_qu) {
+                    console.log('地区存储111')
                     this.setData({
                       order_end_provinceid: diqu[i].provinceid,
                       order_end_cityid: diqu[i].citys[j].cityid,
                       order_end_areaid: diqu[i].citys[j].areas[k].areaid,
+                    })
+                  }else if(this.data.xun2){
+                    console.log('地区存储222')
+                    api.setAreasinfo({
+                      area_name: end_region_qu,
+                      cityid:diqu[i].citys[j].cityid
+                    }, res => {
+                      console.log('地区存储_1')
+                      console.log(res.data.areaid)
+                      this.setData({
+                        order_end_areaid: res.data.areaid,
+                      })
+                    })
+                    this.setData({
+                      order_end_provinceid: diqu[i].provinceid,
+                    order_end_cityid: diqu[i].citys[j].cityid,
+                    xun2:false
                     })
                   }
                 }
@@ -363,6 +440,23 @@ Page({
                       order_end_cityid: diqu[i].citys[j].cityid,
                       order_end_areaid: diqu[i].citys[j].areas[k].areaid,
                     })
+                  }else if(this.data.xun2){
+                    api.setAreasinfo({
+                      area_name: end_region_qu,
+                      cityid:diqu[i].citys[j].cityid
+                    }, res => {
+                      console.log('地区存储2_2')
+                      console.log(res.data.areaid)
+                      this.setData({
+                        order_end_areaid: res.data.areaid,
+                      })
+                    })
+                    this.setData({
+                      order_end_provinceid: diqu[i].provinceid,
+                      order_end_cityid: diqu[i].citys[j].cityid,
+                      xun2:false
+                    })
+                    break;
                   }
                 }
             }
@@ -445,8 +539,17 @@ Page({
     }, res => {
       console.log(res.data)
       this.setData({
-        order_dingjin:res.data.dingjin
+        order_dingjin:res.data.dingjin,
       })
+    })
+  },
+
+  //选择车况
+  bindPickerChange2(e){
+    console.log(e.detail.value)
+    this.setData({
+      cardList_index2 : e.detail.value,
+      leiixngShow2:false,
     })
   },
 
@@ -651,34 +754,36 @@ Page({
   },
 
   placeOrder() {
-    if(!this.data.order_start_provinceid || !this.data.order_start_cityid || !this.data.order_start_areaid){
-      wx.showModal({
-      title: '提示',
-      content: '未发发车地区，请联系管理员',
-      showCancel:false,
-      success: function (res) {
-        if (res.confirm) {
-          wx.switchTab({
-            url:'/pages/my/my'
-          })
-        }
-      }
-      })
-    }
-    else if(!this.data.order_end_provinceid || !this.data.order_end_cityid || !this.data.order_end_areaid){
-      wx.showModal({
-      title: '提示',
-      content: '未发收车地区，请联系管理员',
-      showCancel:false,
-      success: function (res) {
-        if (res.confirm) {
-          wx.switchTab({
-            url:'/pages/my/my'
-          })
-        }
-      }
-      })
-    } else{
+    // if(!this.data.order_start_provinceid || !this.data.order_start_cityid || !this.data.order_start_areaid){
+    //   wx.showModal({
+    //   title: '提示',
+    //   content: '暂无该发车地区，请联系管理员',
+    //   showCancel:false,
+    //   success: function (res) {
+    //     if (res.confirm) {
+    //       wx.switchTab({
+    //         url:'/pages/my/my'
+    //       })
+    //     }
+    //   }
+    //   })
+    //   return
+    // }
+    // if(!this.data.order_end_provinceid || !this.data.order_end_cityid || !this.data.order_end_areaid){
+    //   wx.showModal({
+    //   title: '提示',
+    //   content: '暂无该收车地区，请联系管理员',
+    //   showCancel:false,
+    //   success: function (res) {
+    //     if (res.confirm) {
+    //       wx.switchTab({
+    //         url:'/pages/my/my'
+    //       })
+    //     }
+    //   }
+    //   })
+    //   return
+    // }
     if(!this.data.dianShow){
       wx.showToast({
         title: '请勾选用户协议及隐私政策',
@@ -693,9 +798,16 @@ Page({
       })
       return
     }
-    if(this.data.leiixngShow){
+    // if(this.data.leiixngShow){
+    //   wx.showToast({
+    //     title: '请选择板车类型',
+    //     icon:'none'
+    //   })
+    //   return
+    // }
+    if(this.data.leiixngShow2){
       wx.showToast({
-        title: '请选择板车类型',
+        title: '请选择托运车况',
         icon:'none'
       })
       return
@@ -777,12 +889,27 @@ Page({
       result: JSON.stringify(wx.getStorageSync('points')), // 规划路线result
       requirement_ids: this.data.teshu, // 特殊要求ID 1,2
       pay_money: this.data.order_pay_money, // 下单需支付
+      car_situation:parseInt(this.data.cardList_index2)+1,
+      is_shouxin:this.data.check2?'0':'1',//授信或微信支付
     }, res => {
       console.log(res)
       this.setData({
         orderid: res.data.id
       })
       if (res.code == 200) {
+        console.log(res.data.appId)
+        console.log(!res.data.appId)
+        if(!res.data.appId){
+          wx.showToast({
+            title: '支付成功',
+            duration: 1000
+          })
+          setTimeout(function () {
+            wx.switchTab({
+              url: 'order',
+            })
+          }, 1000)
+        }else{
         wx.requestPayment({
           timeStamp: res.data.timeStamp,
           nonceStr: res.data.nonceStr,
@@ -825,6 +952,7 @@ Page({
             }
           },
         })
+      }
       } else {
         wx.showToast({
           title: res.message,
@@ -832,7 +960,6 @@ Page({
         })
       }
     })
-  }
   },
   //去支付
   placeOrder2(e) {

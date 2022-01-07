@@ -11,9 +11,21 @@ Page({
     agreement: true,
     money: 0,
     id: 0,
-    type: ''
+    type: '',
+    userInfo:''
   },
-
+  agreementSuccess(e){
+    console.log(e.currentTarget.dataset.shu)
+    if(e.currentTarget.dataset.shu == 1){
+      this.setData({
+        agreement:true
+      })
+    }else{
+      this.setData({
+        agreement:false
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -37,7 +49,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      userInfo:wx.getStorageSync('userInfo')
+    })
   },
 
   pay() {

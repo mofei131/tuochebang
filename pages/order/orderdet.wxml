@@ -75,6 +75,20 @@
       </view>
       <!-- <image src="/image/order_dayu.png"></image> -->
     </view>
+    <!-- 托运车况 -->
+    <view class="card-calss">
+      <view class="card-calss-picker">
+        <view class="zc-time">板车类型：</view>
+        <!-- <picker bindchange="bindPickerChange" value="{{cardList_index}}" range="{{cardList}}">
+          <view>{{cardList[cardList_index]}}</view>
+        </picker> -->
+        <view wx:if="{{datadet.car_situation == 1}}">新车</view>
+        <view wx:if="{{datadet.car_situation == 2}}">二手车</view>
+        <view wx:if="{{datadet.car_situation == 3}}">报废车</view>
+        <view wx:if="{{datadet.car_situation == 4}}">车数车辆</view>
+      </view>
+      <!-- <image src="/image/order_dayu.png"></image> -->
+    </view>
     <!-- 托运车型 -->
     <view class="order-cardType">
       <view class="zc-time">托运车型：</view>
@@ -161,7 +175,7 @@
     </view> -->
     <!-- 下单按钮 -->
     <!-- <view class="order-button" bindtap="placeOrder">去下单<span wx:if="{{order_pay_money > 0}}">（{{order_pay_money}}元）</span></view> -->
-    <view class="order-button" wx:if="{{datadet.status == 0}}">未支付</view>
+    <view class="order-button" wx:if="{{datadet.status == 0}}" bindtap="payOrder">未支付</view>
     <view class="order-button" wx:if="{{datadet.status == 1}}">待接单</view>
     <view class="order-button" wx:if="{{datadet.status == 2}}">进行中</view>
     <view class="order-button" wx:if="{{datadet.status == 4}}">已完成</view>

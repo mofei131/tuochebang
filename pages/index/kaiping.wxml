@@ -1,0 +1,19 @@
+<view>
+<!-- <image class="kaiimg" src="http://hlstore.yimetal.cn/2021/tuochebang/advertise.png" style="{{heightNum}}"></image> -->
+<view class="neibox2" style="{{heightNum}}">
+			<swiper class="swiper flex-column mx-start sx-stretch" style="{{heightNum}}" circular autoplay="true" interval="5000" duration="500" indicator-dots indicator-active-color="#30AEFF" indicator-color="#fff">
+				<swiper-item class="flex-column mx-start sx-stretch" wx:for="{{tanlist}}" wx:key="index">
+					<image class="swiper-item backImgFull" style="{{heightNum}}" src="{{item}}"></image>
+				</swiper-item>
+			</swiper> 
+		</view>
+<view class="box" style="position: absolute;">
+		   <view class="left_box">
+		     <view class="left_item" style="{{loading_left}}"></view>
+		   </view>
+		   <view class="right_box">
+		     <view class="right_item" style="{{loading_right}}"></view>
+		   </view>
+		   <view class="mask" bindtap="topage">跳过</view>
+		 </view>
+</view>

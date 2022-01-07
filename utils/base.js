@@ -1,6 +1,6 @@
 import { Config } from 'config.js';
-import { Access } from 'access.js';
-const access = new Access()
+// import { Access } from 'access.js';
+// const access = new Access()
 class Base {
 
   constructor() {

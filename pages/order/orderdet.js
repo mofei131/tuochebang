@@ -99,7 +99,7 @@ Page({
   map() {
     var that = this;
     var myAmapFun = new amapFile.AMapWX({
-      key: 'bd45905078a821a4b50ad67dbc470875'
+      key: 'f9ecff0235b1c6a0415bb2cd7123a86f'
     });
     console.log('本地存储')
     console.log(this.data.zh)
@@ -450,6 +450,15 @@ touchEnd(e) {
         otherList: otherList,
         otherList_: data
       })
+    })
+  },
+
+  //支付
+  payOrder(){
+    let that = this
+    console.log(this.data.datadet)
+    wx.navigateTo({
+      url: '../index/pay?money='+that.data.datadet.need_pay+'&id='+this.data.datadet.id,
     })
   },
 

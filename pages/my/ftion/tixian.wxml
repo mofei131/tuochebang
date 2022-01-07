@@ -16,6 +16,17 @@
   </view>
 
   <view class="tixian-money">
+    <text wx:if="{{date == 0}}">提示：全天候提现,还可提现{{ci}}次</text>
+    <text wx:if="{{date == 1}}">提示：周一可提现,还可提现{{ci}}次</text>
+    <text wx:if="{{date == 2}}">提示：周二可提现,还可提现{{ci}}次</text>
+    <text wx:if="{{date == 3}}">提示：周三可提现,还可提现{{ci}}次</text>
+    <text wx:if="{{date == 4}}">提示：周四可提现,还可提现{{ci}}次</text>
+    <text wx:if="{{date == 5}}">提示：周五可提现,还可提现{{ci}}次</text>
+    <text wx:if="{{date == 6}}">提示：周六可提现,还可提现{{ci}}次</text>
+    <text wx:if="{{date == 7}}">提示：周日可提现,还可提现{{ci}}次</text>
+  </view>
+
+  <view class="tixian-money">
     <text>提款金额</text>
     <input type="digit" bindinput="carry" placeholder="请输入提款金额" />
   </view>

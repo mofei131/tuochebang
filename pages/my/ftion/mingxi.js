@@ -12,14 +12,23 @@ Page({
   data: {
     dataList:[],
     page:1,
-    limit:15
+    limit:15,
+    type:1
   },
   
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (p) {
+    if(p.type == 3){
+      this.setData({
+        type:p.type
+      })
+    }else{
+      this.setData({
+        type:1
+      })
+    }
   },
 
   /**
@@ -36,7 +45,7 @@ Page({
     api.moneyLog({
       page:this.data.page,
       limit:this.data.limit,
-      type:1,
+      type:this.data.type == 3?'':'1',
       user_id:wx.getStorageSync('userInfo').id
     },res =>{
       console.log(res.data)
@@ -74,7 +83,7 @@ Page({
     api.moneyLog({
       page:this.data.page,
       limit:this.data.limit,
-      type:1,
+      type:this.data.type == 3?'':'1',
       user_id:wx.getStorageSync('userInfo').id
     },res =>{
       if(res.data.length == 0){

@@ -23,6 +23,12 @@ Page({
       {
         title: '进行中',
         type: 2
+      },{
+        title: '待取车',
+        type: 10
+      },{
+        title: '已到达',
+        type: 11
       },
       {
         title: '已取消',
@@ -102,7 +108,21 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      page:1
+    })
+    this.huoquOrder()
+    wx.showLoading({
+      title: '正在刷新',
+    })
+    setTimeout(function(){
+      wx.hideLoading();
+      wx.showToast({
+      title: '刷新成功',
+      duration:1000
+    })
+    wx.stopPullDownRefresh();
+    },1000) 
   },
 
   /**
@@ -166,7 +186,7 @@ Page({
   payOrder(e){
     console.log(e.currentTarget.dataset.item)
     wx.navigateTo({
-      url: '../index/pay?money='+e.currentTarget.dataset.item.pay_money+'&id='+e.currentTarget.dataset.item.id,
+      url: '../index/pay?money='+e.currentTarget.dataset.item.need_pay+'&id='+e.currentTarget.dataset.item.id,
     })
   },
   // 联系司机
@@ -186,6 +206,12 @@ Page({
    })
   },
 
+  //申请发票
+  tofapiao(e){
+    wx.navigateTo({
+      url: '../signIn/fapiao?id='+e.currentTarget.dataset.item.id+'&money='+e.currentTarget.dataset.item.total_price,
+    })
+  },
   // 跳转评价
   toEvaluate(e) {
     wx.navigateTo({

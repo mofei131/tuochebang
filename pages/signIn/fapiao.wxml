@@ -1,0 +1,102 @@
+<view>
+<view class="mk1">
+<view class="tit">
+<view class="blueleft"></view>
+<view class="titfont">发票详情</view>
+</view>
+</view>
+<view class="mk2">
+<view class="mk2box">
+<view class="mk2list">
+<view class="mk2lleft">发票抬头</view>
+<view class="mk2gd">
+<view>单位</view>
+<image src="{{imgx?'../../image/tixian_ye.png':'../../image/tixian_no.png'}}" data-shu="1" bindtap="imagex" />
+</view>
+<view class="mk2gd">
+<view>个人</view>
+<image src="{{imgx?'../../image/tixian_no.png':'../../image/tixian_ye.png'}}" data-shu="2" bindtap="imagex" />
+</view>
+</view>
+<view class="mk2list" wx:if="{{imgx}}">
+<view class="mk2lleft">单位名称:</view>
+<input type="text" placeholder="请填写单位名称" bindinput="setcomp" placeholder-style="color: #C1C2C3;" value="{{comp}}" />
+</view>
+<view class="mk2list" wx:if="{{imgx}}">
+<view class="mk2lleft">税号:</view>
+<input type="text" placeholder="请填写纳税人认别号" bindinput="setshuicode" placeholder-style="color: #C1C2C3;" value="{{shuicode}}" />
+</view>
+<view class="mk2list" wx:else>
+<view class="mk2lleft">个人名称:</view>
+<input type="text" placeholder="请填写个人名称" bindinput="setname" placeholder-style="color: #C1C2C3;" value="{{name}}" />
+</view>
+</view>
+</view>
+<view class="mk3" wx:if="{{imgx}}">
+<view class="tit">
+<view class="blueleft"></view>
+<view class="titfont">更多内容(选填)</view>
+</view>
+</view>
+<view class="mk4" wx:if="{{imgx}}">
+<view class="mk4box">
+<view class="mk2list">
+<view class="mk2lleft">注册地址:</view>
+<input type="text" placeholder="请填写注册地址" bindinput="setaddress" placeholder-style="color: #C1C2C3;" value="{{address}}" />
+</view>
+<view class="mk2list">
+<view class="mk2lleft">注册电话:</view>
+<input type="text" placeholder="请填写注册电话" bindinput="setmobile" placeholder-style="color: #C1C2C3;" value="{{mobile}}" />
+</view>
+<view class="mk2list">
+<view class="mk2lleft">开户银行:</view>
+<input type="text" placeholder="请填写开户银行" bindinput="setbank" placeholder-style="color: #C1C2C3;" value="{{bank}}" />
+</view>
+<view class="mk2list">
+<view class="mk2lleft">银行账号:</view>
+<input type="text" placeholder="请填写银行账号" bindinput="setbankcode" placeholder-style="color: #C1C2C3;" value="{{bankcode}}" />
+</view>
+</view>
+</view>
+<view class="mk5">
+<view class="mk5box">
+<view class="mk2list">
+<view class="mk2lleft">金额：</view>
+<view class="meoe">￥{{money}}</view>
+</view>
+</view>
+</view>
+<view class="mk6">
+<view class="mk2box">
+<view class="mk2list">
+<view class="mk2lleft">发票抬头</view>
+<view class="mk2gd mk2gd2">
+<view>单子发票</view>
+<image src="{{imgx2?'../../image/tixian_ye.png':'../../image/tixian_no.png'}}" data-shu="1" bindtap="imagex2" />
+</view>
+<view class="mk2gd mk2gd2">
+<view>实体发票</view>
+<image src="{{imgx2?'../../image/tixian_no.png':'../../image/tixian_ye.png'}}" data-shu="2" bindtap="imagex2" />
+</view>
+</view>
+<view class="mk2list" wx:if="{{imgx2}}">
+<view class="mk2lleft mk2lleft2">收票人邮箱:</view>
+<input type="text" placeholder="用于向您发送电子发票" bindinput="setemile" placeholder-style="color: #C1C2C3;" value="{{emile}}" />
+</view>
+<view class="mk2list" wx:else>
+<view class="mk2lleft mk2lleft2">收票人地址:</view>
+<input type="text" placeholder="用于向您邮寄实体发票" bindinput="setshiti" placeholder-style="color: #C1C2C3;" value="{{shiti}}" />
+</view>
+</view>
+</view>
+<view class="mk5">
+<view class="mk5box">
+<view class="mk2list">
+<view class="mk2lleft">发票内容：</view>
+<view class="eneirong">{{content}}</view>
+</view>
+</view>
+</view>
+<view class="tjbtn" bindtap="tijiao" wx:if="{{!comp && !name}}">提交</view>
+<view class="tjbtn" wx:else>已提交</view>
+</view>

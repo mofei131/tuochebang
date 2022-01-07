@@ -14,7 +14,6 @@
       </view>
     </view>
   </view>
-
   <view class="list">
     <view class="list-title">我的推广</view>
     <view class="list-list">
@@ -26,13 +25,14 @@
   </view>
 
   <view>
-    <view class="list-item2" wx:for="{{list2}}" bindtap="goPage" data-url="{{item.url}}" wx:key="index">
+    <view class="list-item2" wx:for="{{list2}}" bindtap="goPage" data-url="{{item.url}}" wx:key="index" wx:if="{{userInfo.is_kefu == 1?true:index>0}}">
       <view class="item-class">
         <image src="{{item.icon}}"></image>
         <text>{{item.name}}</text>
       </view>
       <view class="item-icon">
-        <text wx:if="{{index == 3}}">{{kefu_phone}}</text>
+        <text wx:if="{{index == 4}}">{{kefu_phone}}</text>
+        <text wx:if="{{index == 0}}">￥{{userInfo.shouxin}}</text>
         <image src="/image/my_hui.png"></image>
       </view>
     </view>

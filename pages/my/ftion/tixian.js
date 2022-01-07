@@ -13,7 +13,9 @@ Page({
     price: '',
     price_baoliu:0,
     carry:0,
-    set:[]
+    set:[],
+    date:'',
+    ci:''
   },
 
   /**
@@ -42,6 +44,22 @@ Page({
         set:res.data.set,
         name:wx.getStorageSync('userInfo').nickname,
         price:wx.getStorageSync('userInfo').wallet
+      })
+    })
+    api.setting({
+      key:'week'
+    },res =>{
+      console.log(res.data.data)
+      this.setData({
+        date : res.data.data
+      })
+    })
+    api.setting({
+      key:'withdraw_times'
+    },res =>{
+      console.log(res.data.data)
+      this.setData({
+        ci:res.data.data
       })
     })
   },

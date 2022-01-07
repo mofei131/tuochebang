@@ -477,6 +477,54 @@ class Api extends Base {
     };
     this.request(param);
   }
+  // 添加地区
+  setAreasinfo(param, callback) {
+    var param = {
+      url: 'index/setAreasinfo',
+      type: "get",
+      data: param,
+      sCallback: function (data) {
+        callback && callback(data);
+      }
+    };
+    this.request(param);
+  }
+  // 提交发票
+  applyInvoice(param, callback) {
+    var param = {
+      url: 'Wechat/applyInvoice',
+      type: "get",
+      data: param,
+      sCallback: function (data) {
+        callback && callback(data);
+      }
+    };
+    this.request(param);
+  }
+  // 查询发票
+  invoiceInfo(param, callback) {
+    var param = {
+      url: 'Wechat/invoiceInfo',
+      type: "get",
+      data: param,
+      sCallback: function (data) {
+        callback && callback(data);
+      }
+    };
+    this.request(param);
+  }
+  // 开屏弹窗
+  popup(param, callback) {
+    var param = {
+      url: 'pop/popup',
+      type: "get",
+      data: param,
+      sCallback: function (data) {
+        callback && callback(data);
+      }
+    };
+    this.request(param);
+  }
 }
 
 export {

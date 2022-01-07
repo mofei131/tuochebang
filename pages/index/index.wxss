@@ -262,3 +262,36 @@ swiper{
   width: 295px;
   height: 60px;
 }
+/* 弹窗 */
+.tanclose{
+  width: 120rpx;
+  height: 120rpx;
+  margin: auto;
+  position: relative;
+  top: 25%;
+  display: block;
+}
+.neibox2 image{
+  width: 600rpx;
+  height: 800rpx;
+}
+.swiper{
+  width: 600rpx;
+  height: 800rpx;
+}
+.neibox2{
+  width: 600rpx;
+  height: 800rpx;
+  margin: auto;
+  position: relative;
+  top: 20%;
+}
+.boximg{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgb(0,0,0,.3);
+  z-index: 1000;
+}

@@ -11,10 +11,20 @@
 						<view>微信支付</view>
 					</view>
 					<view class="right">
-						<image bindtap="agreementSuccess" class="fix"
+						<image bindtap="agreementSuccess" data-shu="1" class="fix"
 							src="{{agreement?'http://hlstore.yimetal.cn/2021/tuochebang/Oval@2x.png':'http://hlstore.yimetal.cn/2021/tuochebang/Oval@2x(1).png'}}"></image>
 					</view>
 				</view>
+				<!-- <view class="weixin" wx:if="{{userInfo.is_kefu == 1}}">
+					<view class="left">
+						<image src="http://hlstore.yimetal.cn/2021/tuochebang/shouxin.png"></image>
+						<view>授信支付</view>
+					</view>
+					<view class="right">
+						<image bindtap="agreementSuccess" data-shu="2" class="fix"
+							src="{{agreement?'http://hlstore.yimetal.cn/2021/tuochebang/Oval@2x(1).png':'http://hlstore.yimetal.cn/2021/tuochebang/Oval@2x.png'}}"></image>
+					</view>
+				</view> -->
 		</view>
 		<view class="btn" bindtap="pay">立即支付</view>
 	</view>

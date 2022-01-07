@@ -1,21 +1,25 @@
-// pages/my/paihang.js
 import {
   Api
 } from '../../api/api.js';
 var api = new Api(); //实例化 首页 对象
 const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    page:1,
-    limit:50,
-    pailist:[],
-    me:'',
+    heightNum:'',
+    tanlist:'',
+    loading_left:'',
+		loading_right:'',
   },
-
+  topage(){
+    wx.switchTab({
+      url: './index'
+  });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,15 +38,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    api.rank({
-      user_id:wx.getStorageSync('userInfo').id,
-      page:this.data.page,
-      limit:this.data.limit
+    api.popup({
+      type:2
     },res=>{
       this.setData({
-        pailist:res.data.list,
-        me:res.data.user
+        tanlist:res.data.kaiping,
+        loading_left : '-webkit-animation: loading_left '+res.data.kaiping_time+'s linear',
+				loading_right : '-webkit-animation: loading_right '+res.data.kaiping_time+'s linear'
       })
+      setTimeout(function(){
+    	wx.switchTab({
+    	    url: './index'
+    	});
+    },res.data.kaiping_time+'000')
+    })
+    let imgheight = ''
+    wx.getSystemInfo({
+      success: function (res) {
+        imgheight = 'height:'+res.windowHeight+'px'
+      }
+    })
+    this.setData({
+      heightNum:imgheight
     })
   },
 
@@ -71,23 +88,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.data.page += 1
-    api.rank({
-      user_id:wx.getStorageSync('userInfo').id,
-      page:this.data.page,
-      limit:this.data.limit
-    },res=>{
-      if(res.data.list.length != 0){
-        this.setData({
-          pailist:this.data.pailist.concat(res.data.list),
-        })
-      }else{
-        wx.showToast({
-          title: '没有了',
-          icon:'none'
-        })
-      }
-    })
+
   },
 
   /**

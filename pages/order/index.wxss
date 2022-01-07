@@ -81,10 +81,15 @@ checkbox .wx-checkbox-input {
 .order-address image {
   width: 40rpx;
   height: 40rpx;
+  position: absolute;
+  top: 10rpx;
+  right: 0rpx;
 }
 
 .address-info {
   display: flex;
+  position: relative;
+  width: 640rpx;
 }
 
 .address-icon {
@@ -204,7 +209,7 @@ checkbox .wx-checkbox-input {
 }
 
 picker {
-  margin-right: 50rpx;
+  /* margin-right: 50rpx; */
   /* width: 500rpx; */
 }
 .picker2 {
@@ -409,4 +414,11 @@ textarea {
 }
 .leixingShow,.payShow{
   width: 500rpx;
+}
+.insurance-item2{
+  width: 160rpx;
+}
+.insurance-item2 image{
+  width: 48rpx;
+  height: 48rpx;
 }
