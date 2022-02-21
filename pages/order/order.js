@@ -215,7 +215,7 @@ Page({
   // 跳转评价
   toEvaluate(e) {
     wx.navigateTo({
-      url: 'pingjia?id='+e.currentTarget.dataset.id,
+      url: 'pingjia?id='+e.currentTarget.dataset.id.id+'&idno='+e.currentTarget.dataset.id.orderno,
     })
   },
 

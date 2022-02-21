@@ -155,6 +155,12 @@
           "pathName": "pages/signIn/fapiao",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/signIn/fapiao",
+          "pathName": "pages/signIn/fapiao",
+          "query": "",
+          "scene": null
         }
       ]
     }

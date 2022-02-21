@@ -1,4 +1,4 @@
-<view class="dingdan">订单编号:1233567</view>
+<view class="dingdan">订单编号:{{idno}}</view>
 <view class="view_page">
   <view class="content_cls">
     <view class="cross_column">

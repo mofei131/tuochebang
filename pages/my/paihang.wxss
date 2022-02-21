@@ -83,7 +83,7 @@ border-radius: 60rpx;
   position: absolute;
   top: 42rpx;
   z-index: 0;
-  left: 23rpx;
+  /* left: 23rpx; */
 }
 page{
   background: #F7F4F4;

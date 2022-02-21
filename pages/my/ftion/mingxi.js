@@ -10,23 +10,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataList:[],
-    page:1,
-    limit:15,
-    type:1
+    dataList: [],
+    page: 1,
+    limit: 15,
+    type: 1
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (p) {
-    if(p.type == 3){
+    if (p.type == 3) {
       this.setData({
-        type:p.type
+        type: p.type
       })
-    }else{
+    } else {
       this.setData({
-        type:1
+        type: 1
       })
     }
   },
@@ -43,14 +43,14 @@ Page({
    */
   onShow: function () {
     api.moneyLog({
-      page:this.data.page,
-      limit:this.data.limit,
-      type:this.data.type == 3?'':'1',
-      user_id:wx.getStorageSync('userInfo').id
-    },res =>{
+      page: this.data.page,
+      limit: this.data.limit,
+      type: this.data.type == 3 ? '' : '1',
+      user_id: wx.getStorageSync('userInfo').id
+    }, res => {
       console.log(res.data)
       this.setData({
-        dataList:res.data
+        dataList: res.data
       })
     })
   },
@@ -81,19 +81,19 @@ Page({
   onReachBottom: function () {
     this.data.page += 1
     api.moneyLog({
-      page:this.data.page,
-      limit:this.data.limit,
-      type:this.data.type == 3?'':'1',
-      user_id:wx.getStorageSync('userInfo').id
-    },res =>{
-      if(res.data.length == 0){
+      page: this.data.page,
+      limit: this.data.limit,
+      type: this.data.type == 3 ? '' : '1',
+      user_id: wx.getStorageSync('userInfo').id
+    }, res => {
+      if (res.data.length == 0) {
         wx.showToast({
           title: '没有了',
-          icon:'none'
+          icon: 'none'
         })
-      }else{
+      } else {
         this.setData({
-          dataList:this.data.dataList.concat(res.data)
+          dataList: this.data.dataList.concat(res.data)
         })
       }
     })

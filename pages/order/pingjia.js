@@ -12,7 +12,8 @@ Page({
     zishu:0,
     imgpth:[],
     id:0,
-    cont:''
+    cont:'',
+    idno:''
   },
   img_bind: function(event) {
     var id = event.currentTarget.dataset.item + 1;
@@ -27,7 +28,8 @@ Page({
    */
   onLoad: function (p) {
     this.setData({
-      id:p.id
+      id:p.id,
+      idno:p.idno
     })
   },
 
@@ -47,10 +49,9 @@ Page({
   tijiao(){
     let that = this
     let an = []
-    wx.showToast({
+    wx.showLoading({
       title: '正在提交',
-      icon:'loading'
-    })
+  });
     for(let i in this.data.imgpth){
       wx.uploadFile({
         filePath: this.data.imgpth[i],
@@ -59,44 +60,47 @@ Page({
         success(res){
           an.push(JSON.parse(res.data).data.url)
           // console.log(an)
-          if(an.length == that.data.imgpth.length){
-            let se =[{
-              id:that.data.id,
-              score:that.data.total,
-              words:that.data.cont,
-              images:an.toString().replace(/,/g,'|')
-            }]
-            console.log(se)
-            api.orderjudge({
-              id:that.data.id,
-              score:that.data.total,
-              words:that.data.cont,
-              images:an.toString().replace(/,/g,'|')
-            },res=>{
-              wx.hideToast();
-              if(res.code == 200){
-                wx.showToast({
-                  title: '评价成功',
-                  duration:1000
-                })
-                setTimeout(function(){
-                  wx.navigateBack({
-                    delta: 1
-                });
-                },1000)
-              }else if(res.code == -1){
-                wx.showToast({
-                  title: res.message,
-                  icon:'none'
-                })
-              }
-            })
-          }else{
-            wx.showToast({
-              title: '提交失败',
-              icon:'none'
-            })
-          }
+          setTimeout(function(){
+            if(an.length == that.data.imgpth.length){
+              let se =[{
+                id:that.data.id,
+                score:that.data.total,
+                words:that.data.cont,
+                images:an.toString().replace(/,/g,'|')
+              }]
+              console.log(se)
+              api.orderjudge({
+                id:that.data.id,
+                score:that.data.total,
+                words:that.data.cont,
+                images:an.toString().replace(/,/g,'|')
+              },res=>{
+                wx.hideToast();
+                if(res.code == 200){
+                  wx.showToast({
+                    title: '评价成功',
+                    duration:1000
+                  })
+                  wx.hideLoading();
+                  setTimeout(function(){
+                    wx.navigateBack({
+                      delta: 1
+                  });
+                  },1000)
+                }else if(res.code == -1){
+                  wx.showToast({
+                    title: res.message,
+                    icon:'none'
+                  })
+                }
+              })
+            }else{
+              wx.showToast({
+                title: '提交失败',
+                icon:'none'
+              })
+            }
+          },1500)
         } 
       })
     }

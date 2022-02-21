@@ -10,17 +10,17 @@ Page({
     type: '',
     // latitude: app.globalData.latitude,
     // longitude: app.globalData.longitude,
-    latitude:wx.getStorageSync('lat_lon').latitude,
+    latitude: wx.getStorageSync('lat_lon').latitude,
     longitude: wx.getStorageSync('lat_lon').longitude,
     markers: [{
       iconPath: "../../image/add_qi.png",
       id: 0,
       // latitude: app.globalData.latitude,
       // longitude: app.globalData.longitude,
-      latitude:wx.getStorageSync('lat_lon').latitude,
+      latitude: wx.getStorageSync('lat_lon').latitude,
       longitude: wx.getStorageSync('lat_lon').longitude,
       // lat_lon: app.globalData.lat_lon,
-      lat_lon:wx.getStorageSync('lat_lon').longitude + ',' + wx.getStorageSync('lat_lon').latitude,
+      lat_lon: wx.getStorageSync('lat_lon').longitude + ',' + wx.getStorageSync('lat_lon').latitude,
       width: 23,
       height: 33
     }, {
@@ -28,9 +28,9 @@ Page({
       id: 1,
       // latitude: app.globalData.latitude,
       // longitude: app.globalData.longitude,
-      latitude:wx.getStorageSync('lat_lon').latitude,
+      latitude: wx.getStorageSync('lat_lon').latitude,
       longitude: wx.getStorageSync('lat_lon').longitude,
-      lat_lon:wx.getStorageSync('lat_lon').longitude + ',' + wx.getStorageSync('lat_lon').latitude,
+      lat_lon: wx.getStorageSync('lat_lon').longitude + ',' + wx.getStorageSync('lat_lon').latitude,
       // lat_lon: app.globalData.lat_lon,
       width: 24,
       height: 34
@@ -111,6 +111,13 @@ Page({
   },
   bindSearch: function (e) {
     console.log(e)
+    if (e.currentTarget.dataset.keywords.location == '') {
+      wx.showToast({
+        title: '未查询到该地点经纬度，请重新选择位置',
+        icon: 'none'
+      })
+      return
+    }
     var lat_lon = e.currentTarget.dataset.keywords.location.split(",")
     var markers = this.data.markers
     if (this.data.type == 0) {
@@ -157,8 +164,8 @@ Page({
       type: 'wgs84',
       success(res) {
         that.setData({
-          latitude:res.latitude,
-          longitude:res.longitude
+          latitude: res.latitude,
+          longitude: res.longitude
         })
       }
     })

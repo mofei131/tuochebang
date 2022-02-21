@@ -154,7 +154,7 @@ checkbox .wx-checkbox-input {
 }
 
 .luxian-info {
-  font-size: 25rpx;
+  font-size: 28rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #333333;
@@ -192,15 +192,16 @@ checkbox .wx-checkbox-input {
 }
 
 .zc-time {
-  font-size: 25rpx;
+  font-size: 28rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #333333;
   width: 130rpx;
+  white-space: nowrap;
 }
 
 .zc-chektime {
-  font-size: 25rpx;
+  font-size: 28rpx;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #333333;
@@ -233,7 +234,7 @@ picker {
 }
 
 .card-calss-picker {
-  font-size: 25rpx;
+  font-size: 26rpx;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #333333;
@@ -256,7 +257,7 @@ picker {
 }
 
 .order-cardType input {
-  font-size: 25rpx;
+  font-size: 28rpx;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #9C9C9C;
@@ -305,7 +306,7 @@ picker {
 }
 
 .i-item-name {
-  font-size: 25rpx;
+  font-size: 28rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #333333;
@@ -352,14 +353,14 @@ picker {
 textarea {
   width: 424rpx;
   height: 108rpx;
-  font-size: 25rpx;
+  font-size: 28rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #333333;
 }
 
 .cont {
-  font-size: 20rpx;
+  font-size: 24rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #333333;
@@ -382,7 +383,7 @@ textarea {
 }
 
 .xieyi-neir {
-  font-size: 22rpx;
+  font-size: 24rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #666666;

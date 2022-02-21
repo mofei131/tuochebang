@@ -12,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    datadet:'',
+    datadet: '',
     // 位置信息 地图信息 地图标点设置
     latitude: app.globalData.latitude,
     longitude: app.globalData.longitude,
@@ -78,12 +78,12 @@ Page({
     order_end_provinceid: '',
     order_end_cityid: '',
     order_end_areaid: '',
-    ddid:0,
-    touchStartX: 0,  // 触屏起始点x  
-    touchStartY: 0,  // 触屏起始点y 
-    show:true,
-    qi:'',
-    zh:''
+    ddid: 0,
+    touchStartX: 0, // 触屏起始点x  
+    touchStartY: 0, // 触屏起始点y 
+    show: true,
+    qi: '',
+    zh: ''
   },
 
   /**
@@ -92,7 +92,7 @@ Page({
   onLoad: function (p) {
     this.map()
     this.setData({
-      ddid:p.id
+      ddid: p.id
     })
   },
 
@@ -105,10 +105,10 @@ Page({
     console.log(this.data.zh)
     console.log(this.data.start_card.location)
     myAmapFun.getDrivingRoute({
-      origin: this.data.start_card.location,
-      destination: this.data.end_card.location,
-      // origin: this.data.qi,
-      // destination: this.zh,
+      // origin: this.data.start_card.location,
+      // destination: this.data.end_card.location,
+      origin: this.data.qi,
+      destination: this.data.zh,
       success: function (data) {
         var points = [];
         if (data.paths && data.paths[0] && data.paths[0].steps) {
@@ -148,14 +148,14 @@ Page({
   onShow: function () {
     let that = this
     api.driverOrderdetail({
-      id:this.data.ddid
-    },res=>{
+      id: this.data.ddid
+    }, res => {
       console.log("订单详情")
       console.log(res)
       this.setData({
-        datadet:res.data,
-        qi:res.data.result[0].longitude + ','+ res.data.result[0].latitude,
-        zh:res.data.result[res.data.result.length-1].longitude + ','+ res.data.result[res.data.result.length-1].latitude,
+        datadet: res.data,
+        qi: res.data.result[0].longitude + ',' + res.data.result[0].latitude,
+        zh: res.data.result[res.data.result.length - 1].longitude + ',' + res.data.result[res.data.result.length - 1].latitude,
         polyline: [{
           points: res.data.result,
           color: "#0091ff",
@@ -163,7 +163,7 @@ Page({
         }],
       })
       var markers = this.data.markers
-    // if (wx.getStorageSync('start_card')) {
+      // if (wx.getStorageSync('start_card')) {
       // var s_coordinate = wx.getStorageSync('start_card')
       var s_coordinate = res.data.result[0].longitude + ',' + res.data.result[0].latitude
       var s_coordinate2 = s_coordinate.split(",")
@@ -177,26 +177,26 @@ Page({
         markers: markers
       })
       // if (true) {
-        // var e_coordinate = wx.getStorageSync('end_card')
-        var e_coordinate = res.data.result[res.data.result.length-1].longitude + ','+ res.data.result[res.data.result.length-1].latitude
-        var e_coordinate2 = e_coordinate.split(",")
-        markers[1].latitude = e_coordinate2[1]
-        markers[1].longitude = e_coordinate2[0]
-        markers[1].lat_lon = e_coordinate.location
-        that.setData({
-          end_card: e_coordinate,
-          markers: markers
-        })
-    //   }
-    // }
+      // var e_coordinate = wx.getStorageSync('end_card')
+      var e_coordinate = res.data.result[res.data.result.length - 1].longitude + ',' + res.data.result[res.data.result.length - 1].latitude
+      var e_coordinate2 = e_coordinate.split(",")
+      markers[1].latitude = e_coordinate2[1]
+      markers[1].longitude = e_coordinate2[0]
+      markers[1].lat_lon = e_coordinate.location
+      that.setData({
+        end_card: e_coordinate,
+        markers: markers
+      })
+      //   }
+      // }
     })
     wx.getLocation({
       type: 'wgs84',
       success(res) {
         // console.log(res)
         that.setData({
-          latitude:res.latitude,
-          longitude:res.longitude,
+          latitude: res.latitude,
+          longitude: res.longitude,
         })
       }
     })
@@ -255,44 +255,44 @@ Page({
     // this.allMoney()
   },
 
-  touchStart(e) {  
+  touchStart(e) {
     this.setData({
-      touchStartX:e.touches[0].clientX,
-      touchStartY:e.touches[0].clientY
+      touchStartX: e.touches[0].clientX,
+      touchStartY: e.touches[0].clientY
     })
     // this.touchStartX = e.touches[0].clientX;  
     // this.touchStartY = e.touches[0].clientY;  
-},  
+  },
 
-/**  
-* 触摸结束  
-**/  
-touchEnd(e) {
-    let deltaX = e.changedTouches[0].clientX - this.data.touchStartX;  
-    let deltaY = e.changedTouches[0].clientY - this.data.touchStartY;  
-    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {  
-        if (deltaX >= 0) {  
-            console.log("左滑")
-        } else {  
-            console.log("右滑")
-        }  
-    } else if(Math.abs(deltaY) > 50&& Math.abs(deltaX) < Math.abs(deltaY)) {  
-        if (deltaY < 0) {  
-            console.log("上滑")  
-            // this.shou = true
-            this.setData({
-              show:true
-            })
-        } else {  
-            console.log("下滑")
-            this.setData({
-              show:false
-            })
-        }  
-    } else {  
-        console.log("可能是误触！")  
-    }  
-},  
+  /**  
+   * 触摸结束  
+   **/
+  touchEnd(e) {
+    let deltaX = e.changedTouches[0].clientX - this.data.touchStartX;
+    let deltaY = e.changedTouches[0].clientY - this.data.touchStartY;
+    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      if (deltaX >= 0) {
+        console.log("左滑")
+      } else {
+        console.log("右滑")
+      }
+    } else if (Math.abs(deltaY) > 50 && Math.abs(deltaX) < Math.abs(deltaY)) {
+      if (deltaY < 0) {
+        console.log("上滑")
+        // this.shou = true
+        this.setData({
+          show: true
+        })
+      } else {
+        console.log("下滑")
+        this.setData({
+          show: false
+        })
+      }
+    } else {
+      console.log("可能是误触！")
+    }
+  },
 
   // 获取 省市区
   huoquSsq() {
@@ -454,11 +454,11 @@ touchEnd(e) {
   },
 
   //支付
-  payOrder(){
+  payOrder() {
     let that = this
     console.log(this.data.datadet)
     wx.navigateTo({
-      url: '../index/pay?money='+that.data.datadet.need_pay+'&id='+this.data.datadet.id,
+      url: '../index/pay?money=' + that.data.datadet.need_pay + '&id=' + this.data.datadet.id,
     })
   },
 
@@ -646,14 +646,14 @@ touchEnd(e) {
       dingjin: this.data.order_dingjin.toFixed(2), // 定金
       start_lat: start_card_location[1], // 起始纬度
       start_lon: start_card_location[0], // 起始经度
-      start_addr: start_card.district+start_card.address, //起始地址
+      start_addr: start_card.district + start_card.address, //起始地址
       start_name: start_card.name, // 起点小区
       start_city: this.data.order_start_cityid, // 起始城市
       start_pro: this.data.order_start_provinceid, // 省
       start_dis: this.data.order_start_areaid, // 区
       end_lat: end_card_location[1], // 结束纬度
       end_lon: end_card_location[0], // 结束经度
-      end_addr: end_card.district+end_card.address, //结束地址
+      end_addr: end_card.district + end_card.address, //结束地址
       end_name: end_card.name, // 结束小区
       end_city: this.data.order_end_cityid, // 结束城市
       end_pro: this.data.order_end_provinceid, // 省

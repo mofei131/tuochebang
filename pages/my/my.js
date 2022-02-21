@@ -170,6 +170,13 @@ Page({
           city: res.userInfo.city,
         }, res => {
           console.log(res)
+          if(res.data.user_id == null){
+            wx.showToast({
+              title: '暂时无法使用请联系平台管理员',
+              icon: 'none'
+            })
+            return
+          }
           wx.setStorageSync('userInfo', res.data)
           wx.showToast({
             title: '授权成功',

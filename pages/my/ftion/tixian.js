@@ -11,11 +11,12 @@ Page({
   data: {
     name: '',
     price: '',
-    price_baoliu:0,
-    carry:0,
-    set:[],
-    date:'',
-    ci:''
+    price_baoliu: 0,
+    carry: 0,
+    set: [],
+    date: '',
+    ci: '',
+    newMoney: 0
   },
 
   /**
@@ -37,62 +38,64 @@ Page({
    */
   onShow: function () {
     let that = this
-    api.withdrawSet({
-    },res => { 
+    api.withdrawSet({}, res => {
+      var newMoney = Number(wx.getStorageSync('userInfo').wallet) - Number(res.data.limit_money) < 0 ? 0 : Number(wx.getStorageSync('userInfo').wallet) - Number(res.data.limit_money)
+      var newMoney2 = newMoney.toFixed(2)
       this.setData({
-        price_baoliu:res.data.limit_money,
-        set:res.data.set,
-        name:wx.getStorageSync('userInfo').nickname,
-        price:wx.getStorageSync('userInfo').wallet
+        price_baoliu: res.data.limit_money,
+        set: res.data.set,
+        name: wx.getStorageSync('userInfo').nickname,
+        price: wx.getStorageSync('userInfo').wallet,
+        newMoney: newMoney2
       })
     })
     api.setting({
-      key:'week'
-    },res =>{
+      key: 'week'
+    }, res => {
       console.log(res.data.data)
       this.setData({
-        date : res.data.data
+        date: res.data.data
       })
     })
     api.setting({
-      key:'withdraw_times'
-    },res =>{
+      key: 'withdraw_times'
+    }, res => {
       console.log(res.data.data)
       this.setData({
-        ci:res.data.data
+        ci: res.data.data
       })
     })
   },
 
-  carry(e){
+  carry(e) {
     this.setData({
       carry: e.detail.value
     })
   },
-  tik(){
+  tik() {
     let that = this
     api.withdraw({
-      money:this.data.carry,
-      user_id:wx.getStorageSync('userInfo').id,
-      type:1
-    },res =>{
-      if(res.code == 200){
+      money: this.data.carry,
+      user_id: wx.getStorageSync('userInfo').id,
+      type: 1
+    }, res => {
+      if (res.code == 200) {
         wx.showToast({
           title: '提现成功',
         })
         //获取用户信息
         api.getUserinfo({
-          user_id:wx.getStorageSync('userInfo').id
+          user_id: wx.getStorageSync('userInfo').id
         }, res => {
           wx.setStorageSync('userInfo', res.data)
           that.setData({
-            price:wx.getStorageSync('userInfo').wallet
+            price: wx.getStorageSync('userInfo').wallet
           })
         })
-      }else if(res.code == -1){
+      } else if (res.code == -1) {
         wx.showToast({
           title: res.message,
-          icon:'none'
+          icon: 'none'
         })
       }
     })

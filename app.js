@@ -1,8 +1,6 @@
 // app.js
 App({
   onLaunch() {
-    wx.setStorageSync('user_id', 1)
-
     // 获取体系信息
     const systemInfo = wx.getSystemInfoSync();
     // 胶囊按钮位置信息

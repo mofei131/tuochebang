@@ -11,7 +11,7 @@ Page({
   data: {
     clean_phone: false,
     phone: '',
-    ycode:'',
+    ycode: '',
     code: '获取验证码',
     sendTime: '获取验证码'
   },
@@ -38,26 +38,26 @@ Page({
   },
 
   //修改手机号
-  xiugai(){
+  xiugai() {
     api.resetMobile({
-      user_id:wx.getStorageSync('userInfo').id,
-      newmobile:this.data.phone,
-      code:this.data.ycode
-    },res=>{
-      if(res.code == 200){
+      user_id: wx.getStorageSync('userInfo').id,
+      newmobile: this.data.phone,
+      code: this.data.ycode
+    }, res => {
+      if (res.code == 200) {
         wx.showToast({
           title: '修改成功',
-          duration:1000
+          duration: 1000
         })
-        setTimeout(function() {
+        setTimeout(function () {
           wx.switchTab({
-            url:'../index/index'
+            url: '../index/index'
           })
-          },1000)
-      }else if(res.code == -1){
+        }, 1000)
+      } else if (res.code == -1) {
         wx.showToast({
           title: res.message,
-          icon:'none'
+          icon: 'none'
         })
       }
     })
@@ -97,7 +97,7 @@ Page({
 
   },
 
-  getcode(e){
+  getcode(e) {
     this.setData({
       ycode: e.detail.value
     })
@@ -139,27 +139,27 @@ Page({
       })
       return
     }
-    if(this.data.code > 0){
+    if (this.data.code > 0) {
       return
     }
     this.setData({
       code: 60
     })
     api.getVerifyCode({
-      mobile:this.data.phone
-    },res=>{
-    var inter = setInterval(function () {
-      this.setData({
-        sendTime: this.data.code + 's后重发',
-        code: this.data.code - 1
-      });
-      if (this.data.code < 0) {
-        clearInterval(inter)
+      mobile: this.data.phone
+    }, res => {
+      var inter = setInterval(function () {
         this.setData({
-          sendTime: '获取验证码',
-        })
-      }
-    }.bind(this), 1000);
+          sendTime: this.data.code + 's后重发',
+          code: this.data.code - 1
+        });
+        if (this.data.code < 0) {
+          clearInterval(inter)
+          this.setData({
+            sendTime: '获取验证码',
+          })
+        }
+      }.bind(this), 1000);
     })
   }
 })

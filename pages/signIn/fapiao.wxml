@@ -97,6 +97,6 @@
 </view>
 </view>
 </view>
-<view class="tjbtn" bindtap="tijiao" wx:if="{{!comp && !name}}">提交</view>
+<view class="tjbtn" bindtap="tijiao" wx:if="{{show != 1}}">提交</view>
 <view class="tjbtn" wx:else>已提交</view>
 </view>

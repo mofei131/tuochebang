@@ -24,7 +24,8 @@ Page({
     name:'',
     id:'',
     money:'',
-    content:'订单结算费'
+    content:'订单结算费',
+    show:0
   },
   //查询提交信息
   chaxun(){
@@ -32,7 +33,12 @@ Page({
       order_id:this.data.id,
       user_id:wx.getStorageSync('userInfo').id,
     },res=>{
-      console.log(res.data.invoice_head)
+      // console.log(res.data.invoice_head)
+      if(res.data.unit_name.length != 0){
+        this.setData({
+          show:1
+        })
+      }
       this.setData({
         imgx:res.data.invoice_head == 1?'true':'false',
         comp:res.data.invoice_head == 1?res.data.unit_name:'',
