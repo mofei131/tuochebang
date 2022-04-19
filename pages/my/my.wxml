@@ -10,7 +10,7 @@
         <view class="top-info-yue-test">余额</view>
       </view>
       <view class="top-info-tx" bindtap="toTixian">立即提现</view>
-      <view class="top-info-mx" bindtap="toMingxi">余额明细<image src="/image/my_bai.png"></image>
+      <view class="top-info-mx" bindtap="toMingxi">提现明细<image src="/image/my_bai.png"></image>
       </view>
     </view>
   </view>

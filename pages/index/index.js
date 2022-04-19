@@ -56,15 +56,15 @@ Page({
 
     denglu: false,
     scene: 0,
-    tanshow:true,
-    tanlist:''
+    tanshow: true,
+    tanlist: ''
   },
-  handleTap(){
+  handleTap() {
     console.log('禁止关闭')
   },
-  tanclose(){
+  tanclose() {
     this.setData({
-      tanshow:false
+      tanshow: false
     })
   },
   /**
@@ -141,7 +141,7 @@ Page({
   },
 
   // 获取车辆轮播下标记
-  onSlideChangeEnd:function(e){
+  onSlideChangeEnd: function (e) {
     this.setData({
       cardList_index: e.detail.current
     })
@@ -195,7 +195,7 @@ Page({
       }
     }
 
-    
+
     this.map()
     let that = this
     // 获取用户地理位置
@@ -257,15 +257,15 @@ Page({
       }
     })
     api.popup({
-      type:2
-    },res=>{
-      if(res.data.tanchuang.length == 0){
+      type: 2
+    }, res => {
+      if (res.data.tanchuang.length == 0) {
         this.setData({
-          tanshow:false
+          tanshow: false
         })
       }
       this.setData({
-        tanlist:res.data.tanchuang
+        tanlist: res.data.tanchuang
       })
     })
   },
@@ -414,6 +414,12 @@ Page({
     //   })
     //   return
     // }
+    if (!wx.getStorageSync('userInfo').mobile) {
+      this.setData({
+        shou: true
+      })
+      return
+    }
     if (this.data.fuser_name == '') {
       wx.showToast({
         title: '请输入发车人姓名',

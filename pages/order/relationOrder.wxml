@@ -24,10 +24,10 @@
         <view class="item-price">￥{{item.money}}</view>
       </view>
       </view>
-      <view class="ordre-type" wx:if="{{item.status == 2 || item.status == 0}}">
+      <view class="ordre-type" wx:if="{{item.status == 2 || item.status == 0 || item.status == 6 || item.status == 3}}">
         <view class="item-btom1" wx:if="{{item.status > 0 && item.pay_type == 2}}" bindtap="payOrder" data-item="{{item}}">支付运费</view>
         <view class="item-btom1" data-mobile="{{item.driver.mobile}}" bindtap="lianxi" >联系司机</view>
-        <view class="item-btom1" wx:if="{{item.yanche.status == 0 && item.send_mobile == userInfo.mobile}}" data-id="{{item.id}}" bindtap="lookYanche">查看验车</view>
+        <view class="item-btom1" wx:if="{{item.yanche.status == 1 && item.receive_mobile == userInfo.mobile}}" data-id="{{item.id}}" bindtap="lookYanche">查看验车</view>
         <view class="item-btom2" wx:if="{{item.yanche.status == -1 && item.receive_uid == item.user_id}}">已驳回</view>
         <view v-if="{{item.receive_uid == userInfo.id}}">
           <view class="item-btom1" wx:if="{{item.status == 2 && item.pay_type != 2}}" data-id="{{item.id}}" bindtap="wancheng">完成订单</view>

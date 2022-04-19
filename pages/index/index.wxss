@@ -201,15 +201,15 @@
 .user-info-uinfo {
   display: flex;
   align-items: center;
-  margin-bottom: 31rpx;
+  margin-bottom: 22rpx;
 }
 
 .user-info-name input {
-  width: 220rpx;
-  height: 48rpx;
+  width: 235rpx;
+  height: 60rpx;
   background: #F4F4F4;
   border-radius: 8rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #999999;
@@ -221,10 +221,10 @@
 
 .user-info-phone input {
   width: 342rpx;
-  height: 48rpx;
+  height: 60rpx;
   background: #F4F4F4;
   border-radius: 8rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #999999;

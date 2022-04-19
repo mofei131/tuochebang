@@ -10,10 +10,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    page:1,
-    limit:50,
-    pailist:[],
-    me:'',
+    page: 1,
+    limit: 50,
+    pailist: [],
+    me: '',
   },
 
   /**
@@ -35,13 +35,13 @@ Page({
    */
   onShow: function () {
     api.rank({
-      user_id:wx.getStorageSync('userInfo').id,
-      page:this.data.page,
-      limit:this.data.limit
-    },res=>{
+      user_id: wx.getStorageSync('userInfo').id,
+      page: this.data.page,
+      limit: this.data.limit
+    }, res => {
       this.setData({
-        pailist:res.data.list,
-        me:res.data.user
+        pailist: res.data.list,
+        me: res.data.user
       })
     })
   },
@@ -73,18 +73,18 @@ Page({
   onReachBottom: function () {
     this.data.page += 1
     api.rank({
-      user_id:wx.getStorageSync('userInfo').id,
-      page:this.data.page,
-      limit:this.data.limit
-    },res=>{
-      if(res.data.list.length != 0){
+      user_id: wx.getStorageSync('userInfo').id,
+      page: this.data.page,
+      limit: this.data.limit
+    }, res => {
+      if (res.data.list.length != 0) {
         this.setData({
-          pailist:this.data.pailist.concat(res.data.list),
+          pailist: this.data.pailist.concat(res.data.list),
         })
-      }else{
+      } else {
         wx.showToast({
           title: '没有了',
-          icon:'none'
+          icon: 'none'
         })
       }
     })
