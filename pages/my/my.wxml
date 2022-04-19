@@ -23,8 +23,8 @@
       </view>
     </view>
   </view>
-
   <view>
+
     <view class="list-item2" wx:for="{{list2}}" bindtap="goPage" data-url="{{item.url}}" wx:key="index" wx:if="{{userInfo.is_kefu == 1?true:index>0}}">
       <view class="item-class">
         <image src="{{item.icon}}"></image>
